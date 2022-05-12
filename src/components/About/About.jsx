@@ -1,15 +1,14 @@
-import React from "react";
-import "./About.scss";
-
 export const About = ({ about }) => {
   return (
-    <div className="about" ref={about}>
+    <section className="about section" ref={about}>
       <div className="container">
-        <div className="about__inner">
-          <div className="title">About</div>
-          <div className="descr">i like smth</div>
+        <div className="section__inner">
+          <div className="section__info">
+            <div className="title">About</div>
+            <div className="descr">i like smth</div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

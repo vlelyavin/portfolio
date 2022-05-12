@@ -10,19 +10,26 @@
   --medium-ff: "Futura medium";
   --light-ff: "Futura light";
   --xtrabold-ff: "Futura extrabold";
+
+  --regular-secondary-ff: "Fira code regular";
+  --medium-secondary-ff: "Fira code medium";
+  --semibold-secondary-ff: "Fira code semibold";
+  --bold-secondary-ff: "Fira code bold";
+
   --primary: white;
   --secondary: black;
+  --basic-transition: 0.2s;
+  --font-size: 20px;
 }
 
 body {
   overflow: hidden;
-  font-size: 20px;
+  font-size: var(--font-size);
   font-family: var(--medium-ff);
   color: var(--primary);
   width: 100vw;
   height: 100vh;
   background: var(--secondary);
-  position: relative;
 }
 
 .container {
@@ -31,14 +38,30 @@ body {
   height: 100%;
   margin: 0 auto;
 }
+.section {
+  width: 100vw;
+  height: 100vh;
+  &__inner {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+}
 
 .title {
-  pointer-events: none;
   font-size: 80px;
   font-family: var(--bold-ff);
   position: relative;
   max-width: 350px;
   width: 100%;
+  opacity: 0;
   &::after {
     position: absolute;
     content: "";
@@ -53,6 +76,28 @@ body {
 .descr {
   margin: 40px 0 0 0;
   font-size: 25px;
+  opacity: 0;
+}
+
+.hovereffect {
+  transition: var(--basic-transition);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.show {
+  animation: show 1s forwards;
+}
+
+@keyframes show {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translatex(0);
+    opacity: 1;
+  }
 }
 
 .rotate {
@@ -61,5 +106,15 @@ body {
   }
   &__lower {
     transform: rotate(-45deg);
+  }
+}
+
+.reveal {
+  animation: reveal 1s forwards;
+}
+
+@keyframes reveal {
+  to {
+    transform: translateX(0) scale(1);
   }
 }

@@ -11,15 +11,17 @@ export const Intro = ({ intro }) => {
   };
 
   return (
-    <div className="intro" ref={intro}>
+    <section className="intro section" ref={intro}>
       <div className="container">
         <div className="intro__text">PORTFOLIO</div>
         <div className="intro__circle"></div>
-        <div className="intro__inner">
-          <div className="title">Vladimir Lelyavin</div>
-          <div className="descr">web developer</div>
+        <div className="section__inner">
+          <div className="section__info">
+            <div className="title">Vladimir Lelyavin</div>
+            <div className="descr">web developer</div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
