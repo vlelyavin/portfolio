@@ -19,6 +19,8 @@
   --primary: white;
   --secondary: black;
   --basic-transition: 0.2s;
+  --medium-transition: 0.5s;
+  --long-transition: 0.8s;
   --font-size: 20px;
 }
 
@@ -110,11 +112,5 @@ body {
 }
 
 .reveal {
-  animation: reveal 1s forwards;
-}
-
-@keyframes reveal {
-  to {
-    transform: translateX(0) scale(1);
-  }
+  transform: translateX(0) scale(1);
 }

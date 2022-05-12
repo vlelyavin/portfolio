@@ -1,6 +1,12 @@
+import contactImage from "../../images/contact.png";
 import "./Contact.scss";
 
 export const Contact = ({ contact, github, inst }) => {
+  window.onmousemove = (e) => {
+    const contactImg = document.querySelector(".contact__image");
+    contactImg.style.transform = `scale(1.05) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+  };
+
   return (
     <section className="contact section" ref={contact}>
       <div className="container">
@@ -16,6 +22,9 @@ export const Contact = ({ contact, github, inst }) => {
                 <img className="contact__socials__link" src={inst} alt="inst" />
               </a>
             </div>
+          </div>
+          <div className="contact__image__container">
+            <img className="contact__image" src={contactImage} alt="contactImage" />
           </div>
         </div>
       </div>

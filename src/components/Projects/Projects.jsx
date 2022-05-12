@@ -38,7 +38,7 @@ export const Projects = ({ projects }) => {
                 <div className="projects__app__header__button close" onClick={close}></div>
               </div>
             </div>
-            <textarea className="projects__app__inner" defaultValue={defaultValue}></textarea>
+            <textarea className="projects__app__textarea" defaultValue={defaultValue} />
           </div>
         </div>
       </div>

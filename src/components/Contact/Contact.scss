@@ -10,4 +10,21 @@
       width: 50px;
     }
   }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.02s;
+    &__container {
+      box-shadow: 0 0 0 3px var(--primary);
+      overflow: hidden;
+      padding: 3px;
+      width: 50vw;
+      height: 50vh;
+      margin: 0 5px 0 0;
+      border-radius: 10px;
+      transform: translatex(15%) scale(90%);
+      transition: var(--long-transition);
+    }
+  }
 }

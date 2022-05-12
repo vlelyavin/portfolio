@@ -35,25 +35,6 @@ export const App = () => {
     { passive: false }
   );
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const navbtns = document.querySelectorAll(".nav__button");
-          navbtns.forEach((btn) => {
-            btn.classList.remove("current");
-          });
-          const btn = document.querySelector(`.${entry.target.className.slice(0, -8)}btn`);
-          btn.classList.add("current");
-        } else {
-        }
-      });
-    },
-    {
-      threshold: 1,
-    }
-  );
-
   const animObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -62,7 +43,7 @@ export const App = () => {
     });
   });
 
-  const consoleObserver = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("reveal");
@@ -71,20 +52,15 @@ export const App = () => {
   });
 
   useEffect(() => {
-    const introEl = document.querySelector(".intro");
-    const projectsEl = document.querySelector(".projects");
-    const aboutEl = document.querySelector(".about");
-    const contactEl = document.querySelector(".contact");
     const titles = document.querySelectorAll(".title");
     const descriptions = document.querySelectorAll(".descr");
     const socials = document.querySelector(".contact__socials");
     const projectBtn = document.querySelector(".projects__button");
     const console = document.querySelector(".projects__app");
+    const contactImgContainer = document.querySelector(".contact__image__container");
 
-    observer.observe(introEl);
-    observer.observe(projectsEl);
-    observer.observe(aboutEl);
-    observer.observe(contactEl);
+    observer.observe(console);
+    observer.observe(contactImgContainer);
 
     titles.forEach((title) => {
       animObserver.observe(title);
@@ -94,8 +70,6 @@ export const App = () => {
     });
     animObserver.observe(socials);
     animObserver.observe(projectBtn);
-
-    consoleObserver.observe(console);
   });
 
   return (
