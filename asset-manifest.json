@@ -1,17 +1,24 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.a59af12c.css",
-    "main.js": "/portfolio/static/js/main.d47527c3.js",
+    "main.css": "/portfolio/static/css/main.f179b27e.css",
+    "main.js": "/portfolio/static/js/main.4a6fc7d7.js",
+    "static/media/FiraCode-Bold.ttf": "/portfolio/static/media/FiraCode-Bold.06506052e5335a624984.ttf",
+    "static/media/FiraCode-SemiBold.ttf": "/portfolio/static/media/FiraCode-SemiBold.bc12b7185e715a57c937.ttf",
+    "static/media/FiraCode-Regular.ttf": "/portfolio/static/media/FiraCode-Regular.ea32261131becc79ea84.ttf",
+    "static/media/FiraCode-Medium.ttf": "/portfolio/static/media/FiraCode-Medium.1c8a3e40256226ddb520.ttf",
     "static/media/futuraxtrabold.ttf": "/portfolio/static/media/futuraxtrabold.fd37c14a9f5e9448418b.ttf",
+    "static/media/contact.webp": "/portfolio/static/media/contact.5b30d5e7d170c5db58b8.webp",
     "static/media/futuraheavy.ttf": "/portfolio/static/media/futuraheavy.af72c25a6945b0f48abb.ttf",
     "static/media/futuramedium.ttf": "/portfolio/static/media/futuramedium.4e762c29ef7b44ca51cb.ttf",
     "static/media/futuralight.ttf": "/portfolio/static/media/futuralight.ead7282f8edac7904e53.ttf",
+    "static/media/github.webp": "/portfolio/static/media/github.f3ab5a4b7842e46475d5.webp",
+    "static/media/inst.webp": "/portfolio/static/media/inst.31974a087ac6ed5c4d38.webp",
     "index.html": "/portfolio/index.html",
-    "main.a59af12c.css.map": "/portfolio/static/css/main.a59af12c.css.map",
-    "main.d47527c3.js.map": "/portfolio/static/js/main.d47527c3.js.map"
+    "main.f179b27e.css.map": "/portfolio/static/css/main.f179b27e.css.map",
+    "main.4a6fc7d7.js.map": "/portfolio/static/js/main.4a6fc7d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a59af12c.css",
-    "static/js/main.d47527c3.js"
+    "static/css/main.f179b27e.css",
+    "static/js/main.4a6fc7d7.js"
   ]
 }
