@@ -2,13 +2,15 @@ import { Menu } from "../Menu/Menu.jsx";
 import { useState } from "react";
 import "./Header.scss";
 
-export const Header = ({ intro, options, github, inst }) => {
+export const Header = ({ intro, projects, about, contact, options, github, inst }) => {
   const [active, setActive] = useState(false);
   const handleAnim = () => {
     const upper = document.querySelector(".header__menu__upper");
     const lower = document.querySelector(".header__menu__lower");
+
     upper.classList.toggle("rotateupper");
     lower.classList.toggle("rotatelower");
+
     setActive(!active);
   };
 
@@ -36,7 +38,17 @@ export const Header = ({ intro, options, github, inst }) => {
           <div className="header__menu__lower"></div>
         </div>
       </div>
-      {active ? <Menu /> : null}
+      {active ? (
+        <Menu
+          active={active}
+          setActive={setActive}
+          intro={intro}
+          projects={projects}
+          about={about}
+          contact={contact}
+          options={options}
+        />
+      ) : null}
     </header>
   );
 };

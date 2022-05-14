@@ -81,7 +81,15 @@ export const App = () => {
   return (
     <div>
       <Curtain />
-      <Header intro={intro} options={options} inst={inst} github={github} />
+      <Header
+        intro={intro}
+        options={options}
+        inst={inst}
+        github={github}
+        projects={projects}
+        about={about}
+        contact={contact}
+      />
       <Navbar intro={intro} projects={projects} about={about} contact={contact} options={options} />
       <Intro intro={intro} />
       <Projects projects={projects} />

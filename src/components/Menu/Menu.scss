@@ -11,6 +11,7 @@
   background: var(--secondary) no-repeat center center / cover;
   opacity: 1;
   animation: curtain 1s ease-in-out reverse forwards;
+  box-shadow: var(--box-shadow);
   &__nav {
     max-width: 500px;
     width: 100%;
