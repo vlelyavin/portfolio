@@ -5,8 +5,8 @@ import { Intro } from "./components/Intro/Intro";
 import { Projects } from "./components/Projects/Projects";
 import { About } from "./components/About/About";
 import { Contact } from "./components/Contact/Contact";
-import github from "./images/github.png";
-import inst from "./images/inst.png";
+import github from "./images/github.webp";
+import inst from "./images/inst.webp";
 import "./main.scss";
 import "./fonts/fonts.scss";
 

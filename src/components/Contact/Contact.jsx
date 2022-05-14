@@ -1,4 +1,4 @@
-import contactImage from "../../images/contact.png";
+import contactImage from "../../images/contact.webp";
 import "./Contact.scss";
 
 export const Contact = ({ contact, github, inst }) => {
