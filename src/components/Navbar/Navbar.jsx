@@ -36,7 +36,6 @@ export const Navbar = ({ intro, projects, about, contact, options }) => {
     observer.observe(projectsEl);
     observer.observe(aboutEl);
     observer.observe(contactEl);
-    console.log("change");
   });
 
   return (

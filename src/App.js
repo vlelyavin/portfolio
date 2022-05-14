@@ -42,6 +42,9 @@ export const App = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
+          if (entry.target.className.includes("title")) {
+            entry.target.classList.add("line");
+          }
         }
       });
     },

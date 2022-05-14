@@ -7,10 +7,19 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
+  overflow: hidden;
   &__button {
     width: 30px;
     height: 3px;
     background: var(--primary);
+    transform: translateX(-150%);
+    animation: navButton 1s 0.5s cubic-bezier(0, 0.45, 0.09, 0.99) forwards;
+  }
+}
+
+@keyframes navButton {
+  to {
+    transform: translateX(0%);
   }
 }
 

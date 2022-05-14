@@ -24,8 +24,10 @@
   --basic-transition: 0.2s;
   --medium-transition: 0.5s;
   --long-transition: 0.8s;
+  --cubic-transition: cubic-bezier(0, 0.45, 0.09, 0.99);
   --font-size: 20px;
 
+  --box-shadow: 0 0 0 3px var(--primary);
   --circle-shadow: 0 0 10px var(--white-opacity-70), 0 0 20px var(--white-opacity-70), 0 0 30px var(--white-opacity-70),
     0 0 40px var(--white-opacity-70), 0 0 50px var(--white-opacity-70), 0 0 60px var(--white-opacity-70);
 }
@@ -66,18 +68,8 @@ body {
 .title {
   font-size: 80px;
   font-family: var(--bold-ff);
-  position: relative;
   max-width: 350px;
   width: 100%;
-  &::after {
-    position: absolute;
-    content: "";
-    height: 3px;
-    width: 100%;
-    background: var(--primary);
-    left: 0;
-    bottom: -20px;
-  }
 }
 
 .descr {
@@ -101,6 +93,29 @@ body {
   animation: show 1s forwards;
 }
 
+.line {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -20px;
+    background: var(--primary);
+    animation: line var(--long-transition) 0.5s var(--cubic-transition) forwards;
+  }
+}
+
+@keyframes line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 @keyframes show {
   from {
     transform: translateX(-120%);
@@ -108,6 +123,15 @@ body {
   to {
     transform: translatex(0);
     opacity: 1;
+  }
+}
+
+@keyframes curtain {
+  from {
+    transform: translatey(0);
+  }
+  to {
+    transform: translateY(-102vh);
   }
 }
 

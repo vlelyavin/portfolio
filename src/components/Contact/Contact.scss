@@ -18,7 +18,7 @@
     transform: scale(1.07);
     transition: 0.1s;
     &__container {
-      box-shadow: 0 0 0 3px var(--primary);
+      box-shadow: var(--box-shadow);
       overflow: hidden;
       padding: 3px;
       width: 50vw;

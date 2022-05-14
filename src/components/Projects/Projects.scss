@@ -49,7 +49,7 @@
       resize: none;
       white-space: normal;
       overflow: hidden;
-      box-shadow: inset 0 0 0 3px var(--primary);
+      box-shadow: inset var(--box-shadow);
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
     }
