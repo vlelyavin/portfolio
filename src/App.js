@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Intro } from "./components/Intro/Intro";
@@ -16,6 +17,7 @@ export const App = () => {
   const about = useRef();
   const contact = useRef();
   const options = { block: "center", behavior: "smooth" };
+
   document.addEventListener(
     "wheel",
     (e) => {
@@ -35,19 +37,20 @@ export const App = () => {
     { passive: false }
   );
 
-  const animObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  });
+  const animObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    },
+    { threshold: 0 }
+  );
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("reveal");
-      }
+      entry.target.classList.toggle("anim", entry.isIntersecting);
     });
   });
 
@@ -74,6 +77,7 @@ export const App = () => {
 
   return (
     <div>
+      <Curtain />
       <Header intro={intro} options={options} inst={inst} github={github} />
       <Navbar intro={intro} projects={projects} about={about} contact={contact} options={options} />
       <Intro intro={intro} />

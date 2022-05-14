@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "./Navbar.scss";
 
 export const Navbar = ({ intro, projects, about, contact, options }) => {
@@ -27,7 +26,7 @@ export const Navbar = ({ intro, projects, about, contact, options }) => {
     }
   );
 
-  useEffect(() => {
+  window.addEventListener("load", () => {
     const introEl = document.querySelector(".intro");
     const projectsEl = document.querySelector(".projects");
     const aboutEl = document.querySelector(".about");
@@ -37,6 +36,7 @@ export const Navbar = ({ intro, projects, about, contact, options }) => {
     observer.observe(projectsEl);
     observer.observe(aboutEl);
     observer.observe(contactEl);
+    console.log("change");
   });
 
   return (

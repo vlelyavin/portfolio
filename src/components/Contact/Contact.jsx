@@ -4,7 +4,7 @@ import "./Contact.scss";
 export const Contact = ({ contact, github, inst }) => {
   window.onmousemove = (e) => {
     const contactImg = document.querySelector(".contact__image");
-    contactImg.style.transform = `scale(1.05) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    contactImg.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
   };
 
   return (

@@ -1,9 +1,6 @@
-import { useState } from "react";
-import classNames from "classnames";
 import "./Projects.scss";
 
 export const Projects = ({ projects }) => {
-  const [maximized, setMaximized] = useState(false);
   const defaultValue = "console.log(`Hello mom`);";
 
   const close = () => {
@@ -24,17 +21,12 @@ export const Projects = ({ projects }) => {
               </a>
             </div>
           </div>
-          <div className={classNames("projects__app", { maximized: maximized })}>
+          <div className="projects__app">
             <div className="projects__app__header">
               <div className="projects__app__header__title">E:\main\pr.exe</div>
               <div className="projects__app__header__buttons">
                 <div className="projects__app__header__button minimize"></div>
-                <div
-                  className="projects__app__header__button expand"
-                  onClick={() => {
-                    setMaximized(!maximized);
-                  }}
-                ></div>
+                <div className="projects__app__header__button expand"></div>
                 <div className="projects__app__header__button close" onClick={close}></div>
               </div>
             </div>

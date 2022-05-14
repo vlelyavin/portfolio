@@ -7,7 +7,6 @@
     width: 50vw;
     background: var(--secondary);
     transition: transform var(--long-transition), width var(--medium-transition), height var(--medium-transition);
-    object-fit: cover;
     transform: translatex(15%) scale(90%);
     margin: 0 5px 0 0;
     &__header {
@@ -43,7 +42,6 @@
       padding: 15px 20px;
       font-size: var(--font-size);
       font-family: var(--medium-secondary-ff);
-      box-shadow: inset 0 0 0 3px var(--primary);
       color: var(--primary);
       background: var(--secondary);
       border: none;
@@ -51,6 +49,7 @@
       resize: none;
       white-space: normal;
       overflow: hidden;
+      box-shadow: inset 0 0 0 3px var(--primary);
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
     }
@@ -130,16 +129,10 @@
 
 @keyframes close {
   0% {
-    width: 50vw;
-    height: 50vh;
-  }
-  50% {
-    height: 12%;
-    width: 50vw;
+    transform: translatex(0);
   }
   100% {
-    height: 12%;
-    width: 0;
+    transform: translatex(120%);
   }
 }
 

@@ -1,21 +1,69 @@
 .intro {
   &__circle {
     position: absolute;
-    right: -15%;
-    bottom: 18%;
+    opacity: 0;
+    right: -15vw;
+    bottom: 18vh;
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    box-shadow: 0 0 100px 20px rgb(255, 255, 255);
+    box-shadow: none;
+    animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
+      glow 1s 3.5s ease-in-out infinite alternate;
+    transition: var(--long-transition);
   }
   &__text {
     font-size: 60px;
     position: absolute;
     z-index: 2;
     right: 0;
+    opacity: 0;
     bottom: 45%;
     color: white;
     letter-spacing: 10px;
     font-family: var(--xtrabold-ff);
+    transition: var(--medium-transition);
+    animation: textAnim 1.2s ease forwards;
+  }
+}
+
+@keyframes circleAnim {
+  from {
+    right: -15vw;
+  }
+  to {
+    right: 20vw;
+    opacity: 1;
+  }
+}
+
+@keyframes textAnim {
+  from {
+    right: 0;
+  }
+  to {
+    right: 25vw;
+    opacity: 1;
+  }
+}
+
+@keyframes start {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px var(--primary), 0 0 80px var(--primary), 0 0 90px var(--primary),
+      0 0 70px var(--primary);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px var(--primary), 0 0 80px var(--primary), 0 0 90px var(--primary),
+      0 0 70px var(--primary);
+  }
+  to {
+    box-shadow: 0 0 30px #fff, 0 0 50px var(--primary), 0 0 70px var(--primary), 0 0 90px var(--primary),
+      0 0 100px var(--primary), 0 0 80px var(--primary);
   }
 }
