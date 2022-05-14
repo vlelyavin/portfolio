@@ -9,7 +9,7 @@ export const Intro = ({ intro }) => {
     setTimeout(() => {
       introCircle.style.transition = "0.05s";
       introText.style.transition = "0.05s";
-    }, 2000);
+    }, 1500);
   });
 
   document.onmousemove = (e) => {

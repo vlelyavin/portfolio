@@ -7,9 +7,9 @@
     width: 450px;
     height: 450px;
     border-radius: 50%;
-    box-shadow: none;
+    box-shadow: 0 0 0 3px var(--primary);
     animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
-      glow 1s 3.5s ease-in-out infinite alternate;
+      glow 2s 3.5s ease-in-out infinite alternate;
     transition: var(--long-transition);
   }
   &__text {
@@ -49,21 +49,19 @@
 
 @keyframes start {
   from {
-    box-shadow: none;
+    box-shadow: 0 0 0 3px var(--primary);
   }
   to {
-    box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px var(--primary), 0 0 80px var(--primary), 0 0 90px var(--primary),
-      0 0 70px var(--primary);
+    box-shadow: var(--circle-shadow);
   }
 }
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px var(--primary), 0 0 80px var(--primary), 0 0 90px var(--primary),
-      0 0 70px var(--primary);
+    box-shadow: var(--circle-shadow);
   }
   to {
-    box-shadow: 0 0 30px #fff, 0 0 50px var(--primary), 0 0 70px var(--primary), 0 0 90px var(--primary),
-      0 0 100px var(--primary), 0 0 80px var(--primary);
+    box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50), 0 0 40px var(--white-opacity-50),
+      0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
   }
 }

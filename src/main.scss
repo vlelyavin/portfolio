@@ -18,10 +18,16 @@
 
   --primary: white;
   --secondary: black;
+  --white-opacity-70: rgba(255, 255, 255, 0.7);
+  --white-opacity-50: rgba(255, 255, 255, 0.5);
+
   --basic-transition: 0.2s;
   --medium-transition: 0.5s;
   --long-transition: 0.8s;
   --font-size: 20px;
+
+  --circle-shadow: 0 0 10px var(--white-opacity-70), 0 0 20px var(--white-opacity-70), 0 0 30px var(--white-opacity-70),
+    0 0 40px var(--white-opacity-70), 0 0 50px var(--white-opacity-70), 0 0 60px var(--white-opacity-70);
 }
 
 body {
