@@ -9,8 +9,8 @@
   width: 100%;
   height: 100%;
   background: var(--secondary) no-repeat center center / cover;
-  opacity: 1;
-  animation: curtain 1s ease-in-out reverse forwards;
+  transform: translateY(-102vh);
+  transition: var(--long-transition);
   box-shadow: var(--box-shadow);
   &__nav {
     max-width: 500px;

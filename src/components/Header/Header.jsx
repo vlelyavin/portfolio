@@ -11,44 +11,46 @@ export const Header = ({ intro, projects, about, contact, options, github, inst 
     upper.classList.toggle("rotateupper");
     lower.classList.toggle("rotatelower");
 
+    const menu = document.querySelector(".menu");
+    menu.classList.toggle("menuAnim");
     setActive(!active);
   };
 
   return (
-    <header className="header">
-      <div
-        className="header__title hovereffect"
-        onClick={() => {
-          intro.current.scrollIntoView(options);
-        }}
-      >
-        vlelyavin
-      </div>
-      <div className="header__info">
-        <div className="header__socials">
-          <a href="https://github.com/vlelyavin" className="header__socials__link hovereffect">
-            <img className="header__socials__icon" src={github} alt="github" />
-          </a>
-          <a href="https://www.instagram.com/v._lelyavin/" className="header__socials__link hovereffect">
-            <img className="header__socials__icon" src={inst} alt="inst" />
-          </a>
+    <div>
+      <header className="header">
+        <div
+          className="header__title hovereffect"
+          onClick={() => {
+            intro.current.scrollIntoView(options);
+          }}
+        >
+          vlelyavin
         </div>
-        <div className="header__menu hovereffect" onClick={handleAnim}>
-          <div className="header__menu__upper"></div>
-          <div className="header__menu__lower"></div>
+        <div className="header__info">
+          <div className="header__socials">
+            <a href="https://github.com/vlelyavin" className="header__socials__link hovereffect">
+              <img className="header__socials__icon" src={github} alt="github" />
+            </a>
+            <a href="https://www.instagram.com/v._lelyavin/" className="header__socials__link hovereffect">
+              <img className="header__socials__icon" src={inst} alt="inst" />
+            </a>
+          </div>
+          <div className="header__menu hovereffect" onClick={handleAnim}>
+            <div className="header__menu__upper"></div>
+            <div className="header__menu__lower"></div>
+          </div>
         </div>
-      </div>
-      {active ? (
-        <Menu
-          active={active}
-          setActive={setActive}
-          intro={intro}
-          projects={projects}
-          about={about}
-          contact={contact}
-          options={options}
-        />
-      ) : null}
-    </header>
+      </header>
+      <Menu
+        active={active}
+        setActive={setActive}
+        intro={intro}
+        projects={projects}
+        about={about}
+        contact={contact}
+        options={options}
+      />
+    </div>
   );
 };

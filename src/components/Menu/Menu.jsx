@@ -14,14 +14,22 @@ export const Menu = ({ intro, projects, about, contact, options, active, setActi
     });
   });
 
+  const handleClick = () => {
+    setActive(!active);
+    const menu = document.querySelector(".menu");
+    menu.classList.remove("menuAnim");
+  };
+
   return (
     <div className="menu">
       <div className="menu__nav">
         <div
           className="menu__nav__button"
           onClick={() => {
-            intro.current.scrollIntoView(options);
-            setActive(!active);
+            setTimeout(() => {
+              intro.current.scrollIntoView(options);
+            }, 600);
+            handleClick();
           }}
         >
           Intro
@@ -29,8 +37,10 @@ export const Menu = ({ intro, projects, about, contact, options, active, setActi
         <div
           className="menu__nav__button"
           onClick={() => {
-            projects.current.scrollIntoView(options);
-            setActive(!active);
+            setTimeout(() => {
+              projects.current.scrollIntoView(options);
+            }, 600);
+            handleClick();
           }}
         >
           Projects
@@ -38,8 +48,10 @@ export const Menu = ({ intro, projects, about, contact, options, active, setActi
         <div
           className="menu__nav__button"
           onClick={() => {
-            about.current.scrollIntoView(options);
-            setActive(!active);
+            setTimeout(() => {
+              about.current.scrollIntoView(options);
+            }, 600);
+            handleClick();
           }}
         >
           About
@@ -47,8 +59,10 @@ export const Menu = ({ intro, projects, about, contact, options, active, setActi
         <div
           className="menu__nav__button"
           onClick={() => {
-            contact.current.scrollIntoView(options);
-            setActive(!active);
+            setTimeout(() => {
+              contact.current.scrollIntoView(options);
+            }, 600);
+            handleClick();
           }}
         >
           Contact

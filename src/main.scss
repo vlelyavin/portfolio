@@ -107,6 +107,10 @@ body {
   }
 }
 
+.menuAnim {
+  transform: translateY(0);
+}
+
 @keyframes line {
   from {
     width: 0;
