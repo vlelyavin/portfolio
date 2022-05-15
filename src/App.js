@@ -18,42 +18,66 @@ export const App = () => {
   const contact = useRef();
   const options = { block: "center", behavior: "smooth" };
 
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.addEventListener("wheel", (e) => {
+            const el = entry.target;
+            const nextEl = el.nextSibling;
+            const prevEl = el.previousSibling;
+            if (e.deltaY > 0 && nextEl) {
+              setTimeout(() => {
+                nextEl.scrollIntoView(options);
+              }, 100);
+            } else if (e.deltaY < 0 && prevEl) {
+              setTimeout(() => {
+                prevEl.scrollIntoView(options);
+              }, 100);
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
   document.addEventListener(
     "wheel",
     (e) => {
       e.preventDefault();
-      const current = document.querySelector(".current");
-      const el = e.target.parentNode.parentNode;
-      const nextEl = el.nextElementSibling;
-      const prevEl = el.previousElementSibling;
-      if (current) {
-        if (e.deltaY > 0 && nextEl) {
-          nextEl.scrollIntoView(options);
-        } else if (e.deltaY < 0 && prevEl) {
-          prevEl.scrollIntoView(options);
-        }
-      }
+
+      const introEl = document.querySelector(".intro");
+      const projectsEl = document.querySelector(".projects");
+      const aboutEl = document.querySelector(".about");
+      const contactEl = document.querySelector(".contact");
+
+      sectionObserver.observe(introEl);
+      sectionObserver.observe(projectsEl);
+      sectionObserver.observe(aboutEl);
+      sectionObserver.observe(contactEl);
     },
     { passive: false }
   );
 
-  const animObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          if (entry.target.className.includes("title")) {
-            entry.target.classList.add("line");
-          }
-        }
-      });
-    },
-    { threshold: 0 }
-  );
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      entry.target.classList.toggle("anim", entry.isIntersecting);
+      if (
+        entry.target.className.includes("projects__app") ||
+        entry.target.className.includes("contact__image__container")
+      ) {
+        entry.target.classList.toggle("anim", entry.isIntersecting);
+      } else if (
+        entry.target.className.includes("title") ||
+        entry.target.className.includes("descr") ||
+        entry.target.className.includes("contact__socials") ||
+        entry.target.className.includes("projects__button")
+      ) {
+        entry.target.classList.toggle("translate", entry.isIntersecting);
+        if (entry.target.className.includes("title")) {
+          entry.target.classList.toggle("line", entry.isIntersecting);
+        }
+      }
     });
   });
 
@@ -69,13 +93,13 @@ export const App = () => {
     observer.observe(contactImgContainer);
 
     titles.forEach((title) => {
-      animObserver.observe(title);
+      observer.observe(title);
     });
     descriptions.forEach((descr) => {
-      animObserver.observe(descr);
+      observer.observe(descr);
     });
-    animObserver.observe(socials);
-    animObserver.observe(projectBtn);
+    observer.observe(socials);
+    observer.observe(projectBtn);
   });
 
   return (
@@ -91,10 +115,12 @@ export const App = () => {
         contact={contact}
       />
       <Navbar intro={intro} projects={projects} about={about} contact={contact} options={options} />
-      <Intro intro={intro} />
-      <Projects projects={projects} />
-      <About about={about} />
-      <Contact contact={contact} inst={inst} github={github} />
+      <div className="sections">
+        <Intro intro={intro} />
+        <Projects projects={projects} />
+        <About about={about} />
+        <Contact contact={contact} inst={inst} github={github} />
+      </div>
     </div>
   );
 };

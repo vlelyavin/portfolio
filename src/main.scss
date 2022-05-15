@@ -24,6 +24,7 @@
   --basic-transition: 0.2s;
   --medium-transition: 0.5s;
   --long-transition: 0.8s;
+  --xtralong-transition: 1s;
   --cubic-transition: cubic-bezier(0, 0.45, 0.09, 0.99);
   --font-size: 20px;
 
@@ -62,6 +63,7 @@ body {
   &__info {
     display: flex;
     flex-direction: column;
+    padding: 0 0 0 20px;
   }
 }
 
@@ -70,16 +72,19 @@ body {
   font-family: var(--bold-ff);
   max-width: 350px;
   width: 100%;
+  transition: var(--xtralong-transition) var(--cubic-transition);
 }
 
 .descr {
   margin: 40px 0 0 0;
   font-size: 25px;
+  transition: var(--long-transition) var(--cubic-transition);
+  transition-delay: 0.4s;
 }
 
 .title,
 .descr {
-  opacity: 0;
+  transform: translateX(-105%);
 }
 
 .hovereffect {
@@ -89,8 +94,8 @@ body {
   }
 }
 
-.show {
-  animation: show 1s forwards;
+.translate {
+  transform: translatex(0);
 }
 
 .line {
@@ -103,7 +108,7 @@ body {
     left: 0;
     bottom: -20px;
     background: var(--primary);
-    animation: line var(--long-transition) 0.5s var(--cubic-transition) forwards;
+    animation: line var(--long-transition) 0.2s var(--cubic-transition) forwards;
   }
 }
 
@@ -117,16 +122,6 @@ body {
   }
   to {
     width: 100%;
-  }
-}
-
-@keyframes show {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translatex(0);
-    opacity: 1;
   }
 }
 
