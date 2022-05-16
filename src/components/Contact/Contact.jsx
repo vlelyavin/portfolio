@@ -2,11 +2,6 @@ import contactImage from "../../images/contact.webp";
 import "./Contact.scss";
 
 export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
-  window.onmousemove = (e) => {
-    const contactImg = document.querySelector(".contact__image");
-    contactImg.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-  };
-
   return (
     <section className="contact section" ref={contact}>
       <div className="container">
@@ -23,8 +18,8 @@ export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
               </a>
             </div>
           </div>
-          <div className="contact__image__container">
-            <img className="contact__image" src={contactImage} alt="contactImage" />
+          <div className="section__image__container">
+            <img className="section__image" src={contactImage} alt="contactImage" />
           </div>
         </div>
       </div>

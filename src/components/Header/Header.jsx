@@ -4,10 +4,21 @@ import moon from "../../images/moon.png";
 import sun from "../../images/sun.png";
 import "./Header.scss";
 
-export const Header = ({ theme, setTheme, intro, projects, about, contact, options, git, gitDark, inst, instDark }) => {
+export const Header = ({
+  theme,
+  setTheme,
+  body,
+  intro,
+  projects,
+  about,
+  contact,
+  options,
+  git,
+  gitDark,
+  inst,
+  instDark,
+}) => {
   const [active, setActive] = useState(false);
-
-  const body = document.querySelector("body");
 
   if (localStorage.getItem("theme")) {
     body.classList.add(localStorage.getItem("theme"));

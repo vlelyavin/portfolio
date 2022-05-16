@@ -19,7 +19,19 @@ export const App = () => {
   const about = useRef();
   const contact = useRef();
   const options = { block: "center", behavior: "smooth" };
+  const body = document.querySelector("body");
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
+
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme"));
+  }, [theme]);
+
+  window.onmousemove = (e) => {
+    const images = document.querySelectorAll(".section__image");
+    images.forEach((image) => {
+      image.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    });
+  };
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -126,6 +138,7 @@ export const App = () => {
         projects={projects}
         about={about}
         contact={contact}
+        body={body}
       />
       <Navbar intro={intro} projects={projects} about={about} contact={contact} options={options} />
       <div className="sections">
