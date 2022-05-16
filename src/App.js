@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -6,7 +6,9 @@ import { Intro } from "./components/Intro/Intro";
 import { Projects } from "./components/Projects/Projects";
 import { About } from "./components/About/About";
 import { Contact } from "./components/Contact/Contact";
-import github from "./images/github.webp";
+import git from "./images/git.webp";
+import gitDark from "./images/gitDark.webp";
+import instDark from "./images/instDark.webp";
 import inst from "./images/inst.webp";
 import "./main.scss";
 import "./fonts/fonts.scss";
@@ -17,6 +19,7 @@ export const App = () => {
   const about = useRef();
   const contact = useRef();
   const options = { block: "center", behavior: "smooth" };
+  const [theme, setTheme] = useState(localStorage.getItem("theme"));
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -64,14 +67,14 @@ export const App = () => {
     entries.forEach((entry) => {
       if (
         entry.target.className.includes("projects__app") ||
-        entry.target.className.includes("contact__image__container")
+        entry.target.className.includes("section__image__container")
       ) {
         entry.target.classList.toggle("anim", entry.isIntersecting);
       } else if (
         entry.target.className.includes("title") ||
         entry.target.className.includes("descr") ||
         entry.target.className.includes("contact__socials") ||
-        entry.target.className.includes("projects__button")
+        entry.target.className.includes("section__button")
       ) {
         entry.target.classList.toggle("translate", entry.isIntersecting);
         if (entry.target.className.includes("title")) {
@@ -85,12 +88,15 @@ export const App = () => {
     const titles = document.querySelectorAll(".title");
     const descriptions = document.querySelectorAll(".descr");
     const socials = document.querySelector(".contact__socials");
-    const projectBtn = document.querySelector(".projects__button");
+
+    const buttons = document.querySelectorAll(".section__button");
     const console = document.querySelector(".projects__app");
-    const contactImgContainer = document.querySelector(".contact__image__container");
+    const ImgContainers = document.querySelectorAll(".section__image__container");
 
     observer.observe(console);
-    observer.observe(contactImgContainer);
+    ImgContainers.forEach((container) => {
+      observer.observe(container);
+    });
 
     titles.forEach((title) => {
       observer.observe(title);
@@ -99,17 +105,24 @@ export const App = () => {
       observer.observe(descr);
     });
     observer.observe(socials);
-    observer.observe(projectBtn);
+
+    buttons.forEach((button) => {
+      observer.observe(button);
+    });
   });
 
   return (
     <div>
       <Curtain />
       <Header
+        theme={theme}
+        setTheme={setTheme}
         intro={intro}
         options={options}
         inst={inst}
-        github={github}
+        git={git}
+        instDark={instDark}
+        gitDark={gitDark}
         projects={projects}
         about={about}
         contact={contact}
@@ -119,7 +132,7 @@ export const App = () => {
         <Intro intro={intro} />
         <Projects projects={projects} />
         <About about={about} />
-        <Contact contact={contact} inst={inst} github={github} />
+        <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
       </div>
     </div>
   );

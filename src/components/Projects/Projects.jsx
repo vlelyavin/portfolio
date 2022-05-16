@@ -15,8 +15,8 @@ export const Projects = ({ projects }) => {
           <div className="section__info">
             <div className="title">Projects</div>
             <div className="descr">websites, apps</div>
-            <div className="projects__button">
-              <a href="https://github.com/vlelyavin" className="projects__link hovereffect">
+            <div className="section__button">
+              <a href="https://github.com/vlelyavin" className="section__link hovereffect">
                 Explore
               </a>
             </div>

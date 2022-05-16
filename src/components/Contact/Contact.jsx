@@ -1,7 +1,7 @@
 import contactImage from "../../images/contact.webp";
 import "./Contact.scss";
 
-export const Contact = ({ contact, github, inst }) => {
+export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
   window.onmousemove = (e) => {
     const contactImg = document.querySelector(".contact__image");
     contactImg.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
@@ -16,10 +16,10 @@ export const Contact = ({ contact, github, inst }) => {
             <div className="descr">vlelyavin@gmail.com</div>
             <div className="contact__socials">
               <a href="https://github.com/vlelyavin" className="contact__socials__link hovereffect">
-                <img className="contact__socials__link" src={github} alt="github" />
+                <img className="contact__socials__link" src={theme === "dark" ? git : gitDark} alt="github" />
               </a>
               <a href="https://www.instagram.com/v._lelyavin/" className="contact__socials__link hovereffect">
-                <img className="contact__socials__link" src={inst} alt="inst" />
+                <img className="contact__socials__link" src={theme === "dark" ? inst : instDark} alt="inst" />
               </a>
             </div>
           </div>

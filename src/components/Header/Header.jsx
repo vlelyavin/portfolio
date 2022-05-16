@@ -1,17 +1,36 @@
 import { Menu } from "../Menu/Menu.jsx";
 import { useState } from "react";
+import moon from "../../images/moon.png";
+import sun from "../../images/sun.png";
 import "./Header.scss";
 
-export const Header = ({ intro, projects, about, contact, options, github, inst }) => {
+export const Header = ({ theme, setTheme, intro, projects, about, contact, options, git, gitDark, inst, instDark }) => {
   const [active, setActive] = useState(false);
+
+  const body = document.querySelector("body");
+
+  if (localStorage.getItem("theme")) {
+    body.classList.add(localStorage.getItem("theme"));
+  } else {
+    localStorage.setItem("theme", "dark");
+    body.classList.add(localStorage.getItem("theme"));
+  }
+
+  const switchTheme = () => {
+    body.classList.toggle("dark");
+    body.classList.toggle("white");
+    localStorage.setItem("theme", body.classList);
+    setTheme(localStorage.getItem("theme"));
+  };
+
   const handleAnim = () => {
     const upper = document.querySelector(".header__menu__upper");
     const lower = document.querySelector(".header__menu__lower");
+    const menu = document.querySelector(".menu");
 
     upper.classList.toggle("rotateupper");
     lower.classList.toggle("rotatelower");
 
-    const menu = document.querySelector(".menu");
     menu.classList.toggle("menuAnim");
     setActive(!active);
   };
@@ -28,12 +47,18 @@ export const Header = ({ intro, projects, about, contact, options, github, inst 
           vlelyavin
         </div>
         <div className="header__info">
+          <img
+            className="header__theme hovereffect"
+            src={theme === "dark" ? moon : sun}
+            onClick={switchTheme}
+            alt="theme"
+          />
           <div className="header__socials">
             <a href="https://github.com/vlelyavin" className="header__socials__link hovereffect">
-              <img className="header__socials__icon" src={github} alt="github" />
+              <img className="header__socials__icon" src={theme === "dark" ? git : gitDark} alt="github" />
             </a>
             <a href="https://www.instagram.com/v._lelyavin/" className="header__socials__link hovereffect">
-              <img className="header__socials__icon" src={inst} alt="inst" />
+              <img className="header__socials__icon" src={theme === "dark" ? inst : instDark} alt="inst" />
             </a>
           </div>
           <div className="header__menu hovereffect" onClick={handleAnim}>
