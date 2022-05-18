@@ -1,4 +1,4 @@
-import mtb from "../../images/mtb.jpg";
+import mtb from "../../images/mtb.png";
 import "./About.scss";
 
 export const About = ({ about }) => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Cursor } from "./components/Cursor/Cursor";
 import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
@@ -28,9 +29,15 @@ export const App = () => {
 
   window.onmousemove = (e) => {
     const images = document.querySelectorAll(".section__image");
+    const cursor = document.querySelector(".cursor");
     images.forEach((image) => {
       image.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
     });
+
+    e.target.style.fitler = `invert()`;
+    cursor.style.opacity = 1;
+    cursor.style.left = `${e.x - 14}px`;
+    cursor.style.top = `${e.y - 14}px`;
   };
 
   const sectionObserver = new IntersectionObserver(
@@ -125,6 +132,7 @@ export const App = () => {
 
   return (
     <div>
+      <Cursor />
       <Curtain />
       <Header
         theme={theme}
