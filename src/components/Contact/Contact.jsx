@@ -8,7 +8,9 @@ export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
         <div className="section__inner">
           <div className="section__info">
             <div className="title">Contact</div>
-            <div className="descr">vlelyavin@gmail.com</div>
+            <a href="mailto:vlelyavin@gmail.com" className="descr">
+              vlelyavin@gmail.com
+            </a>
             <div className="contact__socials">
               <a href="https://github.com/vlelyavin" className="contact__socials__link hovereffect">
                 <img className="contact__socials__link" src={theme === "dark" ? git : gitDark} alt="github" />

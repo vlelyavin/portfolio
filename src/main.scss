@@ -58,6 +58,7 @@ body {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  transition: transform 0.7s;
 }
 .section {
   width: 100vw;
@@ -129,6 +130,8 @@ body {
   font-size: 25px;
   transition: var(--long-transition) var(--cubic-transition);
   transition-delay: 0.2s;
+  text-decoration: none;
+  color: var(--primary);
 }
 
 .title,

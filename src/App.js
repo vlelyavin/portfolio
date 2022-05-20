@@ -22,6 +22,7 @@ export const App = () => {
   const options = { block: "center", behavior: "smooth" };
   const body = document.querySelector("body");
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
@@ -44,10 +45,10 @@ export const App = () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          const el = entry.target;
+          const nextEl = el.nextSibling;
+          const prevEl = el.previousSibling;
           window.addEventListener("wheel", (e) => {
-            const el = entry.target;
-            const nextEl = el.nextSibling;
-            const prevEl = el.previousSibling;
             if (e.deltaY > 0 && nextEl) {
               setTimeout(() => {
                 nextEl.scrollIntoView(options);
@@ -68,40 +69,33 @@ export const App = () => {
     "wheel",
     (e) => {
       e.preventDefault();
-
-      const introEl = document.querySelector(".intro");
-      const projectsEl = document.querySelector(".projects");
-      const aboutEl = document.querySelector(".about");
-      const contactEl = document.querySelector(".contact");
-
-      sectionObserver.observe(introEl);
-      sectionObserver.observe(projectsEl);
-      sectionObserver.observe(aboutEl);
-      sectionObserver.observe(contactEl);
     },
     { passive: false }
   );
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (
-        entry.target.className.includes("projects__app") ||
-        entry.target.className.includes("section__image__container")
-      ) {
-        entry.target.classList.toggle("anim", entry.isIntersecting);
-      } else if (
-        entry.target.className.includes("title") ||
-        entry.target.className.includes("descr") ||
-        entry.target.className.includes("contact__socials") ||
-        entry.target.className.includes("section__button")
-      ) {
-        entry.target.classList.toggle("translate", entry.isIntersecting);
-        if (entry.target.className.includes("title")) {
-          entry.target.classList.toggle("line", entry.isIntersecting);
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (
+          entry.target.className.includes("projects__app") ||
+          entry.target.className.includes("section__image__container")
+        ) {
+          entry.target.classList.toggle("anim", entry.isIntersecting);
+        } else if (
+          entry.target.className.includes("title") ||
+          entry.target.className.includes("descr") ||
+          entry.target.className.includes("contact__socials") ||
+          entry.target.className.includes("section__button")
+        ) {
+          entry.target.classList.toggle("translate", entry.isIntersecting);
+          if (entry.target.className.includes("title")) {
+            entry.target.classList.toggle("line", entry.isIntersecting);
+          }
         }
-      }
-    });
-  });
+      });
+    },
+    [visible]
+  );
 
   useEffect(() => {
     const titles = document.querySelectorAll(".title");
@@ -128,6 +122,16 @@ export const App = () => {
     buttons.forEach((button) => {
       observer.observe(button);
     });
+
+    const introEl = document.querySelector(".intro");
+    const projectsEl = document.querySelector(".projects");
+    const aboutEl = document.querySelector(".about");
+    const contactEl = document.querySelector(".contact");
+
+    sectionObserver.observe(introEl);
+    sectionObserver.observe(projectsEl);
+    sectionObserver.observe(aboutEl);
+    sectionObserver.observe(contactEl);
   });
 
   return (
@@ -152,7 +156,7 @@ export const App = () => {
       <div className="sections">
         <Intro intro={intro} />
         <Projects projects={projects} />
-        <About about={about} />
+        <About about={about} visible={visible} setVisible={setVisible} />
         <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
       </div>
     </div>
