@@ -73,6 +73,19 @@ export const Skills = () => {
               <div className="skills__line__progress html"></div>
             </div>
           </div>
+
+          <div className="skills__line">
+            <div className="skills__line__icon">
+              <FaReact style={iconStyle} />
+            </div>
+            <div className="skills__line__inner">
+              <div className="skills__line__info">
+                <div className="skills__line__info__name">React</div>
+                <div className="skills__line__info__exp">3 months</div>
+              </div>
+              <div className="skills__line__progress react"></div>
+            </div>
+          </div>
         </div>
 
         <div className="skills__column">
@@ -103,21 +116,8 @@ export const Skills = () => {
           </div>
         </div>
       </div>
-
-      <div className="skills__row">
-        <div className="skills__line last">
-          <div className="skills__line__icon">
-            <FaReact style={iconStyle} />
-          </div>
-          <div className="skills__line__inner">
-            <div className="skills__line__info">
-              <div className="skills__line__info__name">React</div>
-              <div className="skills__line__info__exp">3 months</div>
-            </div>
-            <div className="skills__line__progress react"></div>
-          </div>
-        </div>
-      </div>
+      {/* 
+      <div className="skills__row"></div> */}
     </div>
   );
 };

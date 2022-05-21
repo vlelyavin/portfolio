@@ -8,7 +8,7 @@ export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
         <div className="section__inner">
           <div className="section__info">
             <div className="title">Contact</div>
-            <a href="mailto:vlelyavin@gmail.com" className="descr">
+            <a href="mailto:vlelyavin@gmail.com" id="email" className="descr">
               vlelyavin@gmail.com
             </a>
             <div className="contact__socials">

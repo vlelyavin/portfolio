@@ -1,35 +1,21 @@
-import { useState, useEffect } from "react";
 import mtb from "../../images/mtb.png";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AboutMe } from "../AboutInfo/AboutMe/AboutMe";
 import { Passion } from "../AboutInfo/Passion/Passion";
 import { Skills } from "../AboutInfo/Skills/Skills";
+import { VscClose } from "react-icons/vsc";
 
 import "./About.scss";
 
 export const About = ({ about, visible, setVisible }) => {
   const showDetails = () => {
-    // const about = document.querySelector("#about");
-    // about.classList.toggle("first");
-
-    // setTimeout(() => {
-    //   const aboutDetails = document.querySelector("#details");
-    //   aboutDetails.classList.toggle("second");
-    // }, 300);
-
     setTimeout(() => {
       setVisible(!visible);
     }, 300);
   };
 
   const hideDetails = () => {
-    // const about = document.querySelector("#about");
-    // about.style.transform = `translateX(0)`;
-
-    // const aboutDetails = document.querySelector("#details");
-    // aboutDetails.style.transform = `translateX(150%)`;
-
     setTimeout(() => {
       setVisible(!visible);
     }, 300);
@@ -73,7 +59,7 @@ export const About = ({ about, visible, setVisible }) => {
                   My passion
                 </Link>
                 <Link to="/skills" className="details__nav__button">
-                  Skill set
+                  Skills
                 </Link>
               </div>
               <div className="details__info">
@@ -82,6 +68,7 @@ export const About = ({ about, visible, setVisible }) => {
                   <Route path="/passion" element={<Passion />} />
                   <Route path="/skills" element={<Skills />} />
                 </Routes>
+                <VscClose className="details__button" onClick={hideDetails} />
               </div>
             </div>
           </div>

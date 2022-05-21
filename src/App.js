@@ -136,7 +136,7 @@ export const App = () => {
 
   return (
     <div>
-      <Cursor />
+      <Cursor visible={visible} />
       <Curtain />
       <Header
         theme={theme}
@@ -156,7 +156,7 @@ export const App = () => {
       <div className="sections">
         <Intro intro={intro} />
         <Projects projects={projects} />
-        <About about={about} visible={visible} setVisible={setVisible} />
+        <About about={about} visible={visible} setVisible={setVisible} theme={theme} />
         <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
       </div>
     </div>

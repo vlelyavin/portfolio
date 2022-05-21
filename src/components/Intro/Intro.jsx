@@ -1,5 +1,6 @@
 import React from "react";
 import "./Intro.scss";
+import Typewriter from "typewriter-effect";
 
 export const Intro = ({ intro }) => {
   window.addEventListener("load", () => {
@@ -28,7 +29,16 @@ export const Intro = ({ intro }) => {
         <div className="section__inner">
           <div className="section__info">
             <div className="title">Vladimir Lelyavin</div>
-            <div className="descr">web developer</div>
+            <div className="descr">
+              <Typewriter
+                options={{ cursor: null }}
+                onInit={(typewriter) => {
+                  typewriter.changeDelay(30).typeString("web developer").start();
+                }}
+              />
+            </div>
+
+            {/* <div className="descr">web developer</div> */}
           </div>
         </div>
       </div>

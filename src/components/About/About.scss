@@ -6,14 +6,21 @@
     height: 100%;
     padding: 100px 50px;
   }
-
+  &__button {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50%);
+  }
   &__nav {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     font-size: 35px;
+    padding: 0 100px;
     font-family: var(--xtrabold-ff);
     &__button {
       text-decoration: none;
@@ -37,6 +44,7 @@
     }
   }
   &__info {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
