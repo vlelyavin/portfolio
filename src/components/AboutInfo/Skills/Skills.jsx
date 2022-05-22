@@ -20,21 +20,13 @@ export const Skills = () => {
 
         jsLine.style.width = `90%`;
 
-        setTimeout(() => {
-          htmlLine.style.width = `110%`;
-        }, 100);
+        htmlLine.style.width = `110%`;
 
-        setTimeout(() => {
-          cssLine.style.width = `110%`;
-        }, 200);
+        cssLine.style.width = `110%`;
 
-        setTimeout(() => {
-          sassLine.style.width = `95%`;
-        }, 300);
+        sassLine.style.width = `95%`;
 
-        setTimeout(() => {
-          reactLine.style.width = `80%`;
-        }, 400);
+        reactLine.style.width = `80%`;
       }
     });
   });
