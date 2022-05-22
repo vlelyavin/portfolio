@@ -1,11 +1,11 @@
 .intro {
   &__circle {
     position: absolute;
-    opacity: 0;
     right: -15vw;
     bottom: 18vh;
     width: 450px;
     height: 450px;
+    opacity: 0;
     border-radius: 50%;
     box-shadow: var(--box-shadow);
     animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
@@ -13,12 +13,12 @@
     transition: var(--long-transition);
   }
   &__text {
-    font-size: 60px;
     position: absolute;
-    z-index: 2;
     right: 0;
-    opacity: 0;
     bottom: 45%;
+    font-size: 60px;
+    opacity: 0;
+    z-index: 2;
     color: var(--primary);
     letter-spacing: 10px;
     font-family: var(--xtrabold-ff);

@@ -8,45 +8,31 @@
   }
   &__button {
     position: absolute;
-    z-index: 100;
     bottom: 0px;
     left: 50%;
     width: 50px;
     height: 50px;
+    z-index: 100;
     transform: translateX(-50%);
   }
   &__nav {
     display: flex;
     align-items: center;
-    gap: 30px;
     width: 100%;
     font-size: 35px;
+    gap: 30px;
     padding: 0 100px;
-    // font-family: var(--xtrabold-ff);
     transition: 0.8s;
     animation: 0.8s drop forwards;
     &__button {
-      text-decoration: none;
-      color: var(--primary);
-      font-size: 45px;
+      position: relative;
       display: flex;
       justify-content: center;
-      position: relative;
+      text-decoration: none;
       width: 30%;
+      font-size: 45px;
+      color: var(--primary);
       transition: 0.5s;
-      // &::after {
-      //   position: absolute;
-      //   content: "";
-      //   bottom: -5px;
-      //   left: 0;
-      //   height: 3px;
-      //   width: 0;
-      //   background: var(--primary);
-      //   transition: var(--long-transition) var(--cubic-transition);
-      // }
-      // &:hover::after {
-      //   width: 100%;
-      // }
       &:hover {
         opacity: 0.7;
       }
@@ -60,8 +46,8 @@
     text-align: center;
     width: 100%;
     height: 100%;
-    line-height: 40px;
     font-size: 32px;
+    line-height: 40px;
     font-family: var(--medium-ff);
   }
 }
