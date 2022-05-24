@@ -20,9 +20,6 @@ export const About = ({ about, visible, setVisible }) => {
     }, 300);
   };
 
-  const aboutMe = `Born in Kiev in 2004, currently studying in the university and searching for the first job.
-  After discovering web development for myself, quickly became interested in this topic. My main goal is to improve my skills, so every opportunity should be exploited whenever it arises. Nowadays struggling with learning react)`;
-
   return (
     <Router>
       <section className="about section" ref={about}>
@@ -63,7 +60,7 @@ export const About = ({ about, visible, setVisible }) => {
               </div>
               <div className="details__info">
                 <Routes>
-                  <Route path="/" element={<AboutMe aboutMe={aboutMe} />} />
+                  <Route path="/" element={<AboutMe />} />
                   <Route path="/passion" element={<Passion />} />
                   <Route path="/skills" element={<Skills />} />
                 </Routes>

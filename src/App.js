@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { config } from "./assets/particlesConfig/config";
+import { ParticleBackground } from "./components/ParticleBackground/ParticleBackground";
 import { Cursor } from "./components/Cursor/Cursor";
 import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
@@ -14,7 +12,7 @@ import git from "./images/git.webp";
 import gitDark from "./images/gitDark.webp";
 import instDark from "./images/instDark.webp";
 import inst from "./images/inst.webp";
-import "./assets/main.scss";
+import "./main.scss";
 import "./fonts/fonts.scss";
 
 export const App = () => {
@@ -26,10 +24,6 @@ export const App = () => {
   const body = document.querySelector("body");
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const [visible, setVisible] = useState(false);
-
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
 
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
@@ -69,7 +63,7 @@ export const App = () => {
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.15 }
   );
 
   document.addEventListener(
@@ -143,7 +137,7 @@ export const App = () => {
 
   return (
     <div>
-      <Particles init={particlesInit} options={config} />
+      <ParticleBackground theme={theme} />
       <Cursor visible={visible} />
       <Curtain />
       <Header

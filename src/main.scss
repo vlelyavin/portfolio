@@ -47,7 +47,6 @@ body {
   color: var(--primary);
   width: 100vw;
   height: 100vh;
-  background: var(--secondary);
 
   --box-shadow: 0 0 0 3px var(--primary);
   --circle-shadow: 0 0 10px var(--white-opacity-70), 0 0 20px var(--white-opacity-70), 0 0 30px var(--white-opacity-70),
@@ -96,7 +95,7 @@ body {
     white-space: nowrap;
     transform: translatex(-105%);
     transition: var(--long-transition) var(--cubic-transition);
-    transition-delay: var(--basic-transition);
+    transition-delay: var(--fast-transition);
   }
   &__image {
     width: 100%;
@@ -132,7 +131,7 @@ body {
   margin: 40px 0 0 0;
   font-size: 25px;
   transition: var(--long-transition) var(--cubic-transition);
-  transition-delay: var(--basic-transition);
+  transition-delay: var(--fast-transition);
   text-decoration: none;
   color: var(--primary);
 }
