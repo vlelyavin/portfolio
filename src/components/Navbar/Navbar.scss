@@ -26,3 +26,14 @@
 .current {
   width: 50px;
 }
+
+@media screen and (max-width: 1000px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    bottom: -100px;
+    transform: translateX(-50%) rotate(-90deg);
+  }
+}

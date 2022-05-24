@@ -84,12 +84,13 @@ export const App = () => {
           entry.target.classList.toggle("anim", entry.isIntersecting);
         } else if (
           entry.target.className.includes("title") ||
+          entry.target.className.includes("title__container") ||
           entry.target.className.includes("descr") ||
           entry.target.className.includes("contact__socials") ||
           entry.target.className.includes("section__button")
         ) {
           entry.target.classList.toggle("translate", entry.isIntersecting);
-          if (entry.target.className.includes("title")) {
+          if (entry.target.className.includes("descr")) {
             entry.target.classList.toggle("line", entry.isIntersecting);
           }
         }

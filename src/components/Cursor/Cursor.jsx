@@ -9,6 +9,7 @@ export const Cursor = ({ visible }) => {
     const projectsAppHeader = document.querySelector(".projects__app__header");
     const cross = document.querySelector(".details__button");
     const emailLink = document.querySelector("#email");
+    const menuButtons = document.querySelectorAll(".menu__nav__button");
     hovers.forEach((hover) => {
       hover.addEventListener("mouseover", () => {
         cursor.style.transform = "scale(1.1) rotate(135deg)";
@@ -17,6 +18,17 @@ export const Cursor = ({ visible }) => {
         cursor.style.transform = "scale(1) rotate(45deg)";
       });
     });
+
+    if (menuButtons) {
+      menuButtons.forEach((button) => {
+        button.addEventListener("mouseover", () => {
+          cursor.style.transform = "scale(1.1) rotate(135deg)";
+        });
+        button.addEventListener("mouseout", () => {
+          cursor.style.transform = "scale(1) rotate(45deg)";
+        });
+      });
+    }
 
     if (navButtons) {
       navButtons.forEach((button) => {

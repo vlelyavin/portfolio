@@ -77,6 +77,8 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0 0 0 20px;
+    min-width: 220px;
+    width: 21vw;
   }
   &__link {
     display: flex;
@@ -120,7 +122,7 @@ body {
 }
 
 .title {
-  font-size: 80px;
+  font-size: clamp(50px, 4.5vw, 80px);
   font-family: var(--bold-ff);
   max-width: 350px;
   width: 100%;
@@ -129,7 +131,7 @@ body {
 
 .descr {
   margin: 40px 0 0 0;
-  font-size: 25px;
+  font-size: clamp(16px, 1.5vw, 20px);
   transition: var(--long-transition) var(--cubic-transition);
   transition-delay: var(--fast-transition);
   text-decoration: none;
@@ -160,7 +162,7 @@ body {
     height: 3px;
     width: 0;
     left: 0;
-    bottom: -20px;
+    top: -20px;
     background: var(--primary);
     animation: line var(--long-transition) 0.2s var(--cubic-transition) forwards;
   }
@@ -199,4 +201,10 @@ body {
 
 .anim {
   transform: translateX(0) scale(1);
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    padding: 0 100px;
+  }
 }
