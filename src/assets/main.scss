@@ -31,6 +31,7 @@
   --semibold-secondary-ff: "Fira code semibold";
   --bold-secondary-ff: "Fira code bold";
 
+  --fast-transition: 0.1s;
   --basic-transition: 0.2s;
   --medium-transition: 0.5s;
   --long-transition: 0.8s;
@@ -95,12 +96,11 @@ body {
     white-space: nowrap;
     transform: translatex(-105%);
     transition: var(--long-transition) var(--cubic-transition);
-    transition-delay: 0.4s;
+    transition-delay: var(--basic-transition);
   }
   &__image {
     width: 100%;
     height: 100%;
-
     transform: scale(1.07);
     transition: 0.1s;
     filter: grayscale(100%);
@@ -113,6 +113,7 @@ body {
       height: 400px;
       margin: 0 5px 0 0;
       border-radius: 10px;
+      background: var(--secondary);
       transform: translatex(15%) scale(0.9);
       transition: var(--long-transition);
     }
@@ -131,7 +132,7 @@ body {
   margin: 40px 0 0 0;
   font-size: 25px;
   transition: var(--long-transition) var(--cubic-transition);
-  transition-delay: 0.2s;
+  transition-delay: var(--basic-transition);
   text-decoration: none;
   color: var(--primary);
 }

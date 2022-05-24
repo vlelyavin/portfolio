@@ -6,7 +6,7 @@
     gap: 15px;
     transform: translateX(-100%);
     transition: var(--long-transition) var(--cubic-transition);
-    transition-delay: 0.4s;
+    transition-delay: var(--basic-transition);
     overflow: hidden;
     &__link {
       height: 50px;
