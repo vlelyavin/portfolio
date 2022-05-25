@@ -21,7 +21,7 @@ export const Contact = ({ theme, contact, git, gitDark, inst, instDark }) => {
             </div>
           </div>
           <div className="section__image__container">
-            <img className="section__image" src={contactImage} alt="contactImage" />
+            <img className="section__image spaceman" src={contactImage} alt="contactImage" />
           </div>
         </div>
       </div>

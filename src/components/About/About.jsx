@@ -40,7 +40,7 @@ export const About = ({ about, visible, setVisible }) => {
                 </div>
               </div>
               <div className="section__image__container">
-                <img className="section__image" src={mtb} alt="mtb" />
+                <img className="section__image bicycle" src={mtb} alt="mtb" />
               </div>
             </div>
           </div>

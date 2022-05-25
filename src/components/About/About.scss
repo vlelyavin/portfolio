@@ -21,9 +21,9 @@
     width: 100%;
     font-size: 35px;
     gap: 30px;
+    transition: padding var(--long-transition);
     padding: 0 100px;
-    transition: 0.8s;
-    animation: 0.8s drop forwards;
+    animation: var(--long-transition) drop forwards;
     &__button {
       position: relative;
       display: flex;
@@ -32,7 +32,7 @@
       width: 30%;
       font-size: 45px;
       color: var(--primary);
-      transition: 0.5s;
+      transition: var(--medium-transition);
       &:hover {
         opacity: 0.7;
       }
@@ -50,14 +50,6 @@
     line-height: 40px;
     font-family: var(--medium-ff);
   }
-}
-
-.first {
-  transform: translatex(-110%);
-}
-
-.second {
-  transform: translateX(0);
 }
 
 @keyframes drop {

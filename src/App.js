@@ -30,11 +30,16 @@ export const App = () => {
   }, [theme]);
 
   window.onmousemove = (e) => {
-    const images = document.querySelectorAll(".section__image");
+    const aboutContainer = document.querySelector(".bicycle");
+    const contactContainer = document.querySelector(".spaceman");
     const cursor = document.querySelector(".cursor");
-    images.forEach((image) => {
-      image.style.transform = `scale(1.07) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-    });
+
+    if (aboutContainer) {
+      aboutContainer.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
+    if (contactContainer) {
+      contactContainer.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
 
     e.target.style.fitler = `invert()`;
     cursor.style.opacity = 1;

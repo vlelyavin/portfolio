@@ -8,7 +8,7 @@
     height: 100%;
     background: var(--secondary);
     transition-delay: var(--basic-transition);
-    transition: 0.5s;
+    transition: var(--medium-transition);
   }
 }
 

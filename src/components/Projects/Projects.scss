@@ -16,6 +16,7 @@
       justify-content: space-between;
       width: 100%;
       height: 40px;
+      font-size: clamp(16px, 1.5vw, 20px);
       border-top-right-radius: 10px;
       border-top-left-radius: 10px;
       padding: 4px 12px 0;
@@ -43,7 +44,7 @@
       padding: 15px 20px;
       border-bottom-right-radius: 10px;
       border-bottom-left-radius: 10px;
-      font-size: var(--font-size);
+      font-size: clamp(12px, 1.5vw, 16px);
       font-family: var(--medium-secondary-ff);
       color: var(--primary);
       background: var(--secondary);
@@ -126,3 +127,12 @@
   height: 100%;
   z-index: 2;
 }
+
+@media screen and (max-width: 1000px) {
+  .projects {
+    &__app {
+      width: 70%;
+      height: 50%;
+    }
+  }
+} ;
