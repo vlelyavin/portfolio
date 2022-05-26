@@ -110,15 +110,6 @@
   animation: close var(--long-transition) forwards;
 }
 
-@keyframes close {
-  0% {
-    transform: translatex(0);
-  }
-  100% {
-    transform: translatex(120%);
-  }
-}
-
 .maximized {
   position: fixed;
   top: 0;
@@ -128,11 +119,20 @@
   z-index: 2;
 }
 
+@keyframes close {
+  0% {
+    transform: translatex(0);
+  }
+  100% {
+    transform: translatex(120%);
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .projects {
     &__app {
       width: 70%;
-      height: 50%;
+      height: 350px;
     }
   }
 } ;

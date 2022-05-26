@@ -18,6 +18,7 @@
   --secondary: white;
   --white-opacity-70: rgba(0, 0, 0, 0.7);
   --white-opacity-50: rgba(0, 0, 0, 0.5);
+  --gray-30: rgba(234, 234, 234, 0.3);
 }
 
 :root {
@@ -102,7 +103,7 @@ body {
   &__image {
     width: 100%;
     height: 100%;
-    transform: scale(1.07);
+    transform: scale(2);
     transition: 0.1s;
     filter: grayscale(100%);
     object-fit: cover;
@@ -231,21 +232,21 @@ body {
       transform: translateY(-50%);
       padding: 20px;
       border-radius: 10px;
+      background: var(--gray-30);
     }
     &__image {
-      transform: scale(2);
       &__container {
         width: 70%;
-        height: 50%;
+        height: 350px;
       }
     }
   }
 }
 
-// @media screen and (max-width: 650px) {
-//   .section {
-//     &__info {
-//       background: var(--white-opacity-20);
-//     }
-//   }
-// }
+.spaceman {
+  transform: scale(1.2);
+}
+
+.bike {
+  transform: scale(2);
+}

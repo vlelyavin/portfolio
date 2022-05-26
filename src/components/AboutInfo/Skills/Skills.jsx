@@ -19,13 +19,9 @@ export const Skills = () => {
         const reactLine = document.querySelector(".react");
 
         jsLine.style.width = `90%`;
-
         htmlLine.style.width = `110%`;
-
         cssLine.style.width = `110%`;
-
         sassLine.style.width = `95%`;
-
         reactLine.style.width = `80%`;
       }
     });

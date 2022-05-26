@@ -5,6 +5,7 @@ export const ParticleBackground = ({ theme }) => {
   const particlesInit = (main) => {
     loadFull(main);
   };
+
   const config = {
     autoPlay: true,
     background: {

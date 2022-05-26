@@ -7,17 +7,13 @@ import { Skills } from "../AboutInfo/Skills/Skills";
 import { VscClose } from "react-icons/vsc";
 import "./About.scss";
 
-export const About = ({ about, visible, setVisible }) => {
+export const About = ({ theme, about, visible, setVisible }) => {
   const showDetails = () => {
-    setTimeout(() => {
-      setVisible(!visible);
-    }, 300);
+    setVisible(!visible);
   };
 
   const hideDetails = () => {
-    setTimeout(() => {
-      setVisible(!visible);
-    }, 300);
+    setVisible(!visible);
   };
 
   return (
@@ -61,10 +57,12 @@ export const About = ({ about, visible, setVisible }) => {
               <div className="details__info">
                 <Routes>
                   <Route path="/" element={<AboutMe />} />
-                  <Route path="/passion" element={<Passion />} />
+                  <Route path="/passion" element={<Passion theme={theme} />} />
                   <Route path="/skills" element={<Skills />} />
                 </Routes>
-                <VscClose className="details__button" onClick={hideDetails} />
+                <Link to="/" className="details__button__container" onClick={hideDetails}>
+                  <VscClose className="details__button" />
+                </Link>
               </div>
             </div>
           </div>

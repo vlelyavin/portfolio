@@ -9,6 +9,8 @@
   padding: 30px 40px;
   z-index: 5;
   &__title {
+    display: flex;
+    align-items: center;
     color: var(--primary);
   }
   &__socials {

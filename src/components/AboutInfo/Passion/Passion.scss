@@ -16,9 +16,26 @@
     font-size: 20px;
     width: 30%;
     transition: 0.4s;
+    animation: showup 1s var(--cubic-transition) forwards;
+  }
+  &__icon {
+    width: 120px;
+    height: 120px;
+    color: var(--primary);
   }
   &__name {
     font-size: 32px;
     margin: 20px 0 0 0;
+  }
+}
+
+@keyframes showup {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

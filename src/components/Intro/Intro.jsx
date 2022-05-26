@@ -1,6 +1,5 @@
-import React from "react";
-import "./Intro.scss";
 import Typewriter from "typewriter-effect";
+import "./Intro.scss";
 
 export const Intro = ({ intro }) => {
   window.addEventListener("load", () => {
@@ -37,8 +36,6 @@ export const Intro = ({ intro }) => {
                 }}
               />
             </div>
-
-            {/* <div className="descr">web developer</div> */}
           </div>
         </div>
       </div>
