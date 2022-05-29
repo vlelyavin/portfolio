@@ -11,14 +11,15 @@
   --secondary: black;
   --white-opacity-70: rgba(255, 255, 255, 0.7);
   --white-opacity-50: rgba(255, 255, 255, 0.5);
+  --section-info-bg: rgba(0, 0, 0, 0.5);
 }
 
-.white {
+.light {
   --primary: black;
   --secondary: white;
   --white-opacity-70: rgba(0, 0, 0, 0.7);
   --white-opacity-50: rgba(0, 0, 0, 0.5);
-  --gray-30: rgba(234, 234, 234, 0.3);
+  --section-info-bg: rgba(234, 234, 234, 0.3);
 }
 
 :root {
@@ -48,6 +49,7 @@ body {
   color: var(--primary);
   width: 100vw;
   height: 100vh;
+  background: var(--secondary);
 
   --box-shadow: 0 0 0 3px var(--primary);
   --circle-shadow: 0 0 10px var(--white-opacity-70), 0 0 20px var(--white-opacity-70), 0 0 30px var(--white-opacity-70),
@@ -86,7 +88,7 @@ body {
     justify-content: center;
     padding: 10px 40px;
     text-align: center;
-    font-size: clamp(16px, 1.5vw, 20px);
+    font-size: clamp(15px, 1.5vw, 18px);
     background: var(--primary);
     color: var(--secondary);
     text-decoration: none;
@@ -123,7 +125,7 @@ body {
 }
 
 .title {
-  font-size: clamp(50px, 4.5vw, 80px);
+  font-size: clamp(50px, 4.5vw, 70px);
   font-family: var(--bold-ff);
   max-width: 350px;
   width: 100%;
@@ -132,7 +134,7 @@ body {
 
 .descr {
   margin: 30px 0 0 0;
-  font-size: clamp(16px, 1.5vw, 20px);
+  font-size: clamp(15px, 1.5vw, 20px);
   transition: var(--long-transition) var(--cubic-transition);
   transition-delay: var(--fast-transition);
   text-decoration: none;
@@ -232,7 +234,7 @@ body {
       transform: translateY(-50%);
       padding: 20px;
       border-radius: 10px;
-      background: var(--gray-30);
+      background: var(--section-info-bg);
     }
     &__image {
       &__container {

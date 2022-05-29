@@ -15,10 +15,9 @@ export const AboutMe = () => {
 
   return (
     <div className="text">
-      Born in Kiev in 2004, i am a self-taught developer who is currently studying in the university and searching for
-      the first job. After discovering web development for myself, quickly became interested in this topic. My main goal
-      is to improve my skills, so every opportunity should be exploited whenever it arises. Nowadays struggling with
-      learning react)
+      Born in Kiev in 2004, I am a self-taught developer who is currently studying at the university and searching for
+      the first job. After discovering web development, quickly became interested in this topic. I have always been a
+      curious person and used every opportunity to expand my knowledge in topics of interest to me.
       <div className="text__rectangle"></div>
     </div>
   );

@@ -29,7 +29,7 @@ export const Header = ({
 
   const switchTheme = () => {
     body.classList.toggle("dark");
-    body.classList.toggle("white");
+    body.classList.toggle("light");
     localStorage.setItem("theme", body.classList);
     setTheme(localStorage.getItem("theme"));
   };

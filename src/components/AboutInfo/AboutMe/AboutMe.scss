@@ -9,9 +9,26 @@
     background: var(--secondary);
     transition-delay: var(--basic-transition);
     transition: var(--medium-transition);
+    animation: slidedown 1s forwards;
   }
 }
 
 .slidedown {
   transform: translateY(100%);
+  opacity: 0;
+}
+
+@keyframes slidedown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }
