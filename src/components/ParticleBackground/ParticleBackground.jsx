@@ -10,7 +10,7 @@ export const ParticleBackground = ({ theme }) => {
     autoPlay: true,
     background: {
       color: {
-        value: "#000",
+        value: theme === "dark" ? "#000" : "#fff",
       },
       image: "",
       position: "",
@@ -22,7 +22,7 @@ export const ParticleBackground = ({ theme }) => {
       composite: "destination-out",
       cover: {
         color: {
-          value: "#fff",
+          value: theme === "dark" ? "#fff" : "#000",
         },
         opacity: 1,
       },
@@ -100,14 +100,14 @@ export const ParticleBackground = ({ theme }) => {
                 value: "#ffffff",
               },
               stop: {
-                value: "#000000",
+                value: theme === "dark" ? "#000" : "#fff",
               },
             },
             radius: 1000,
           },
           shadow: {
             color: {
-              value: "#000000",
+              value: theme === "dark" ? "#000" : "#fff",
             },
             length: 2000,
           },
@@ -277,7 +277,7 @@ export const ParticleBackground = ({ theme }) => {
         mode: "bounce",
       },
       color: {
-        value: "#fff",
+        value: theme === "dark" ? "#fff" : "#000",
         animation: {
           enable: false,
           speed: 100,
@@ -368,7 +368,7 @@ export const ParticleBackground = ({ theme }) => {
           enable: false,
           length: 10,
           fillColor: {
-            value: "#000000",
+            value: theme === "dark" ? "#000" : "#fff",
           },
         },
         vibrate: false,
@@ -411,7 +411,7 @@ export const ParticleBackground = ({ theme }) => {
       shadow: {
         blur: 51,
         color: {
-          value: "#000000",
+          value: theme === "dark" ? "#000" : "#fff",
         },
         enable: false,
         offset: {
@@ -467,5 +467,5 @@ export const ParticleBackground = ({ theme }) => {
     themes: [],
   };
 
-  return theme === "dark" ? <Particles init={particlesInit} options={config} /> : null;
+  return <Particles init={particlesInit} options={config} />;
 };
