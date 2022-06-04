@@ -17,6 +17,10 @@ import "./fonts/fonts.scss";
 
 export const App = () => {
   const [isLoading, setIsLoading] = useState(true);
+  window.addEventListener("load", () => {
+    setIsLoading(!isLoading);
+  });
+
   const intro = useRef();
   const projects = useRef();
   const about = useRef();
@@ -26,41 +30,27 @@ export const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
   const [visible, setVisible] = useState(false);
 
-  window.addEventListener("load", () => {
-    setIsLoading(!isLoading);
-  });
-
-  if (!isLoading) {
-    window.onmousemove = (e) => {
-      const aboutContainer = document.querySelector(".bicycle");
-      const contactContainer = document.querySelector(".spaceman");
-      const cursor = document.querySelector(".cursor");
-
-      if (aboutContainer) {
-        aboutContainer.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-      }
-      if (contactContainer) {
-        contactContainer.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-      }
-
-      e.target.style.fitler = `invert()`;
-      cursor.style.opacity = 1;
-      cursor.style.left = `${e.x - 14}px`;
-      cursor.style.top = `${e.y - 14}px`;
-    };
-
-    document.addEventListener(
-      "wheel",
-      (e) => {
-        e.preventDefault();
-      },
-      { passive: false }
-    );
-  }
-
   useEffect(() => {
     setTheme(localStorage.getItem("theme"));
   }, [theme]);
+
+  window.onmousemove = (e) => {
+    const aboutContainer = document.querySelector(".bicycle");
+    const contactContainer = document.querySelector(".spaceman");
+    const cursor = document.querySelector(".cursor");
+
+    if (aboutContainer) {
+      aboutContainer.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
+    if (contactContainer) {
+      contactContainer.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
+
+    e.target.style.fitler = `invert()`;
+    cursor.style.opacity = 1;
+    cursor.style.left = `${e.x - 14}px`;
+    cursor.style.top = `${e.y - 14}px`;
+  };
 
   const sectionObserver = new IntersectionObserver(
     (entries) => {
@@ -84,6 +74,14 @@ export const App = () => {
       });
     },
     { threshold: 0.15 }
+  );
+
+  document.addEventListener(
+    "wheel",
+    (e) => {
+      e.preventDefault();
+    },
+    { passive: false }
   );
 
   const observer = new IntersectionObserver(
@@ -112,49 +110,46 @@ export const App = () => {
   );
 
   useEffect(() => {
-    if (!isLoading) {
-      const titles = document.querySelectorAll(".title");
-      const descriptions = document.querySelectorAll(".descr");
-      const socials = document.querySelector(".contact__socials");
+    const titles = document.querySelectorAll(".title");
+    const descriptions = document.querySelectorAll(".descr");
+    const socials = document.querySelector(".contact__socials");
 
-      const buttons = document.querySelectorAll(".section__button");
-      const console = document.querySelector(".projects__app");
-      const ImgContainers = document.querySelectorAll(".section__image__container");
+    const buttons = document.querySelectorAll(".section__button");
+    const console = document.querySelector(".projects__app");
+    const ImgContainers = document.querySelectorAll(".section__image__container");
 
-      observer.observe(console);
-      ImgContainers.forEach((container) => {
-        observer.observe(container);
-      });
+    observer.observe(console);
+    ImgContainers.forEach((container) => {
+      observer.observe(container);
+    });
 
-      titles.forEach((title) => {
-        observer.observe(title);
-      });
-      descriptions.forEach((descr) => {
-        observer.observe(descr);
-      });
-      observer.observe(socials);
+    titles.forEach((title) => {
+      observer.observe(title);
+    });
+    descriptions.forEach((descr) => {
+      observer.observe(descr);
+    });
+    observer.observe(socials);
 
-      buttons.forEach((button) => {
-        observer.observe(button);
-      });
+    buttons.forEach((button) => {
+      observer.observe(button);
+    });
 
-      const introEl = document.querySelector(".intro");
-      const projectsEl = document.querySelector(".projects");
-      const aboutEl = document.querySelector(".about");
-      const contactEl = document.querySelector(".contact");
+    const introEl = document.querySelector(".intro");
+    const projectsEl = document.querySelector(".projects");
+    const aboutEl = document.querySelector(".about");
+    const contactEl = document.querySelector(".contact");
 
-      sectionObserver.observe(introEl);
-      sectionObserver.observe(projectsEl);
-      sectionObserver.observe(aboutEl);
-      sectionObserver.observe(contactEl);
-    }
+    sectionObserver.observe(introEl);
+    sectionObserver.observe(projectsEl);
+    sectionObserver.observe(aboutEl);
+    sectionObserver.observe(contactEl);
   });
 
-  return isLoading ? (
-    <Loader />
-  ) : (
+  return (
     <div>
       <ParticleBackground theme={theme} />
+      <Loader />
       <Cursor visible={visible} />
       <Header
         theme={theme}
