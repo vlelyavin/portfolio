@@ -125,7 +125,7 @@ body {
 }
 
 .title {
-  font-size: clamp(50px, 4.5vw, 70px);
+  font-size: 70px;
   font-family: var(--bold-ff);
   max-width: 350px;
   width: 100%;
@@ -134,7 +134,7 @@ body {
 
 .descr {
   margin: 30px 0 0 0;
-  font-size: clamp(15px, 1.5vw, 20px);
+  font-size: 20px;
   transition: var(--long-transition) var(--cubic-transition);
   transition-delay: var(--fast-transition);
   text-decoration: none;
@@ -189,7 +189,7 @@ body {
     transform: translatey(0);
   }
   to {
-    transform: translateY(-102vh);
+    transform: translateY(-150vh);
   }
 }
 
@@ -243,6 +243,12 @@ body {
       }
     }
   }
+  .title {
+    font-size: 50px;
+  }
+  .descr {
+    font-size: 15px;
+  }
 }
 
 .spaceman {
@@ -251,4 +257,10 @@ body {
 
 .bike {
   transform: scale(2);
+}
+
+@media screen and (max-width: 700px) {
+  // .title {
+  //   font-size: 100px;
+  // }
 }
