@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { ParticleBackground } from "./components/ParticleBackground/ParticleBackground";
 import { Loader } from "./components/Loader/Loader";
 import { Cursor } from "./components/Cursor/Cursor";
-import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Intro } from "./components/Intro/Intro";
@@ -147,7 +146,6 @@ export const App = () => {
       <ParticleBackground theme={theme} />
       <Loader />
       <Cursor visible={visible} />
-      <Curtain />
       <Header
         theme={theme}
         setTheme={setTheme}
