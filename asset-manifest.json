@@ -1,29 +1,29 @@
 {
   "files": {
-    "main.css": "/vlelyavinportfolio.io/static/css/main.47c56598.css",
-    "main.js": "/vlelyavinportfolio.io/static/js/main.0b8b3eab.js",
-    "static/js/937.1bc874d4.chunk.js": "/vlelyavinportfolio.io/static/js/937.1bc874d4.chunk.js",
-    "static/media/mtb.png": "/vlelyavinportfolio.io/static/media/mtb.ad2add2cd684282b8f95.png",
-    "static/media/FiraCode-Bold.ttf": "/vlelyavinportfolio.io/static/media/FiraCode-Bold.06506052e5335a624984.ttf",
-    "static/media/FiraCode-SemiBold.ttf": "/vlelyavinportfolio.io/static/media/FiraCode-SemiBold.bc12b7185e715a57c937.ttf",
-    "static/media/FiraCode-Regular.ttf": "/vlelyavinportfolio.io/static/media/FiraCode-Regular.ea32261131becc79ea84.ttf",
-    "static/media/FiraCode-Medium.ttf": "/vlelyavinportfolio.io/static/media/FiraCode-Medium.1c8a3e40256226ddb520.ttf",
-    "static/media/futuraxtrabold.ttf": "/vlelyavinportfolio.io/static/media/futuraxtrabold.fd37c14a9f5e9448418b.ttf",
-    "static/media/contact.webp": "/vlelyavinportfolio.io/static/media/contact.5b30d5e7d170c5db58b8.webp",
-    "static/media/futuraheavy.ttf": "/vlelyavinportfolio.io/static/media/futuraheavy.af72c25a6945b0f48abb.ttf",
-    "static/media/futuramedium.ttf": "/vlelyavinportfolio.io/static/media/futuramedium.4e762c29ef7b44ca51cb.ttf",
-    "static/media/futuralight.ttf": "/vlelyavinportfolio.io/static/media/futuralight.ead7282f8edac7904e53.ttf",
-    "static/media/gitDark.webp": "/vlelyavinportfolio.io/static/media/gitDark.13fa84df151c87bbf1c3.webp",
-    "static/media/git.webp": "/vlelyavinportfolio.io/static/media/git.f3ab5a4b7842e46475d5.webp",
-    "static/media/instDark.webp": "/vlelyavinportfolio.io/static/media/instDark.28652c410ba35551f918.webp",
-    "static/media/inst.webp": "/vlelyavinportfolio.io/static/media/inst.31974a087ac6ed5c4d38.webp",
-    "index.html": "/vlelyavinportfolio.io/index.html",
-    "main.47c56598.css.map": "/vlelyavinportfolio.io/static/css/main.47c56598.css.map",
-    "main.0b8b3eab.js.map": "/vlelyavinportfolio.io/static/js/main.0b8b3eab.js.map",
-    "937.1bc874d4.chunk.js.map": "/vlelyavinportfolio.io/static/js/937.1bc874d4.chunk.js.map"
+    "main.css": "/portfolio/static/css/main.541fea42.css",
+    "main.js": "/portfolio/static/js/main.220a6936.js",
+    "static/js/937.1bc874d4.chunk.js": "/portfolio/static/js/937.1bc874d4.chunk.js",
+    "static/media/mtb.png": "/portfolio/static/media/mtb.ad2add2cd684282b8f95.png",
+    "static/media/FiraCode-Bold.ttf": "/portfolio/static/media/FiraCode-Bold.06506052e5335a624984.ttf",
+    "static/media/FiraCode-SemiBold.ttf": "/portfolio/static/media/FiraCode-SemiBold.bc12b7185e715a57c937.ttf",
+    "static/media/FiraCode-Regular.ttf": "/portfolio/static/media/FiraCode-Regular.ea32261131becc79ea84.ttf",
+    "static/media/FiraCode-Medium.ttf": "/portfolio/static/media/FiraCode-Medium.1c8a3e40256226ddb520.ttf",
+    "static/media/futuraxtrabold.ttf": "/portfolio/static/media/futuraxtrabold.fd37c14a9f5e9448418b.ttf",
+    "static/media/contact.webp": "/portfolio/static/media/contact.5b30d5e7d170c5db58b8.webp",
+    "static/media/futuraheavy.ttf": "/portfolio/static/media/futuraheavy.af72c25a6945b0f48abb.ttf",
+    "static/media/futuramedium.ttf": "/portfolio/static/media/futuramedium.4e762c29ef7b44ca51cb.ttf",
+    "static/media/futuralight.ttf": "/portfolio/static/media/futuralight.ead7282f8edac7904e53.ttf",
+    "static/media/gitDark.webp": "/portfolio/static/media/gitDark.13fa84df151c87bbf1c3.webp",
+    "static/media/git.webp": "/portfolio/static/media/git.f3ab5a4b7842e46475d5.webp",
+    "static/media/instDark.webp": "/portfolio/static/media/instDark.28652c410ba35551f918.webp",
+    "static/media/inst.webp": "/portfolio/static/media/inst.31974a087ac6ed5c4d38.webp",
+    "index.html": "/portfolio/index.html",
+    "main.541fea42.css.map": "/portfolio/static/css/main.541fea42.css.map",
+    "main.220a6936.js.map": "/portfolio/static/js/main.220a6936.js.map",
+    "937.1bc874d4.chunk.js.map": "/portfolio/static/js/937.1bc874d4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.47c56598.css",
-    "static/js/main.0b8b3eab.js"
+    "static/css/main.541fea42.css",
+    "static/js/main.220a6936.js"
   ]
 }
