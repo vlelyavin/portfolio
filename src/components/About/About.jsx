@@ -30,7 +30,7 @@ export const About = ({ theme, about, visible, setVisible }) => {
                   and travelling
                 </div>
                 <div className="section__button">
-                  <Link to="/" className="section__link hovereffect" onClick={showDetails}>
+                  <Link to="portfolio/" className="section__link hovereffect" onClick={showDetails}>
                     Show me more
                   </Link>
                 </div>
@@ -44,23 +44,23 @@ export const About = ({ theme, about, visible, setVisible }) => {
           <div id="details" className="container">
             <div className="details__inner">
               <div className="details__nav">
-                <Link to="/" className="details__nav__button">
+                <Link to="portfolio/" className="details__nav__button">
                   Who i am
                 </Link>
-                <Link to="/skills" className="details__nav__button">
+                <Link to="portfolio/skills" className="details__nav__button">
                   Skills
                 </Link>
-                <Link to="/passion" className="details__nav__button">
+                <Link to="portfolio/passion" className="details__nav__button">
                   My passion
                 </Link>
               </div>
               <div className="details__info">
                 <Routes>
-                  <Route path="/" element={<AboutMe />} />
-                  <Route path="/passion" element={<Passion theme={theme} />} />
-                  <Route path="/skills" element={<Skills />} />
+                  <Route path="portfolio/" element={<AboutMe />} />
+                  <Route path="portfolio/passion" element={<Passion theme={theme} />} />
+                  <Route path="portfolio/skills" element={<Skills />} />
                 </Routes>
-                <Link to="/" className="details__button__container" onClick={hideDetails}>
+                <Link to="portfolio/" className="details__button__container" onClick={hideDetails}>
                   <VscClose className="details__button" />
                 </Link>
               </div>
