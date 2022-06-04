@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ParticleBackground } from "./components/ParticleBackground/ParticleBackground";
+import { Loader } from "./components/Loader/Loader";
 import { Cursor } from "./components/Cursor/Cursor";
 import { Curtain } from "./components/Curtain/Curtain";
 import { Header } from "./components/Header/Header";
@@ -144,6 +145,7 @@ export const App = () => {
   return (
     <div>
       <ParticleBackground theme={theme} />
+      <Loader />
       <Cursor visible={visible} />
       <Curtain />
       <Header
