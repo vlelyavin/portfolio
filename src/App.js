@@ -16,6 +16,11 @@ import "./main.scss";
 import "./fonts/fonts.scss";
 
 export const App = () => {
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+    loader.classList.add("hidden");
+  });
+
   const intro = useRef();
   const projects = useRef();
   const about = useRef();
