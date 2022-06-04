@@ -161,12 +161,11 @@ export const App = () => {
         body={body}
       />
       <Navbar intro={intro} projects={projects} about={about} contact={contact} options={options} />
-      <div className="sections">
-        <Intro intro={intro} />
-        <Projects projects={projects} />
-        <About about={about} visible={visible} setVisible={setVisible} theme={theme} />
-        <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
-      </div>
+
+      <Intro intro={intro} />
+      <Projects projects={projects} />
+      <About about={about} visible={visible} setVisible={setVisible} theme={theme} />
+      <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
     </div>
   );
 };
