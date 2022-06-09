@@ -1,5 +1,6 @@
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import "./ParticleBackground.scss";
 
 export const ParticleBackground = ({ theme }) => {
   const particlesInit = (main) => {
@@ -467,5 +468,5 @@ export const ParticleBackground = ({ theme }) => {
     themes: [],
   };
 
-  return <Particles init={particlesInit} options={config} />;
+  return <Particles init={particlesInit} options={config} canvasClassName={"particles"} />;
 };

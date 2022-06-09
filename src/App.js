@@ -52,30 +52,6 @@ export const App = () => {
     cursor.style.top = `${e.y - 14}px`;
   };
 
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const nextEl = el.nextSibling;
-          const prevEl = el.previousSibling;
-          window.addEventListener("wheel", (e) => {
-            if (e.deltaY > 0 && nextEl) {
-              setTimeout(() => {
-                nextEl.scrollIntoView(options);
-              }, 100);
-            } else if (e.deltaY < 0 && prevEl) {
-              setTimeout(() => {
-                prevEl.scrollIntoView(options);
-              }, 100);
-            }
-          });
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
   document.addEventListener(
     "wheel",
     (e) => {
@@ -109,6 +85,30 @@ export const App = () => {
     [visible]
   );
 
+  const mainObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const nextEl = el.nextSibling;
+          const prevEl = el.previousSibling;
+          window.addEventListener("wheel", (e) => {
+            if (e.deltaY > 0 && nextEl) {
+              setTimeout(() => {
+                nextEl.scrollIntoView(options);
+              }, 100);
+            } else if (e.deltaY < 0 && prevEl) {
+              setTimeout(() => {
+                prevEl.scrollIntoView(options);
+              }, 100);
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
   useEffect(() => {
     const titles = document.querySelectorAll(".title");
     const descriptions = document.querySelectorAll(".descr");
@@ -140,10 +140,10 @@ export const App = () => {
     const aboutEl = document.querySelector(".about");
     const contactEl = document.querySelector(".contact");
 
-    sectionObserver.observe(introEl);
-    sectionObserver.observe(projectsEl);
-    sectionObserver.observe(aboutEl);
-    sectionObserver.observe(contactEl);
+    mainObserver.observe(introEl);
+    mainObserver.observe(projectsEl);
+    mainObserver.observe(aboutEl);
+    mainObserver.observe(contactEl);
   });
 
   return (
