@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.fdc9cdcc.css",
-    "main.js": "/portfolio/static/js/main.97e7b93b.js",
-    "static/js/937.1bc874d4.chunk.js": "/portfolio/static/js/937.1bc874d4.chunk.js",
+    "main.css": "/portfolio/static/css/main.48936c16.css",
+    "main.js": "/portfolio/static/js/main.ad0a5c1d.js",
     "static/media/mtb.png": "/portfolio/static/media/mtb.ad2add2cd684282b8f95.png",
     "static/media/FiraCode-Bold.ttf": "/portfolio/static/media/FiraCode-Bold.06506052e5335a624984.ttf",
     "static/media/FiraCode-SemiBold.ttf": "/portfolio/static/media/FiraCode-SemiBold.bc12b7185e715a57c937.ttf",
@@ -18,12 +17,11 @@
     "static/media/instDark.webp": "/portfolio/static/media/instDark.28652c410ba35551f918.webp",
     "static/media/inst.webp": "/portfolio/static/media/inst.31974a087ac6ed5c4d38.webp",
     "index.html": "/portfolio/index.html",
-    "main.fdc9cdcc.css.map": "/portfolio/static/css/main.fdc9cdcc.css.map",
-    "main.97e7b93b.js.map": "/portfolio/static/js/main.97e7b93b.js.map",
-    "937.1bc874d4.chunk.js.map": "/portfolio/static/js/937.1bc874d4.chunk.js.map"
+    "main.48936c16.css.map": "/portfolio/static/css/main.48936c16.css.map",
+    "main.ad0a5c1d.js.map": "/portfolio/static/js/main.ad0a5c1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fdc9cdcc.css",
-    "static/js/main.97e7b93b.js"
+    "static/css/main.48936c16.css",
+    "static/js/main.ad0a5c1d.js"
   ]
 }
