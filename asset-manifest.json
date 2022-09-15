@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.48936c16.css",
+    "main.css": "/portfolio/static/css/main.56328000.css",
     "main.js": "/portfolio/static/js/main.ad0a5c1d.js",
     "static/media/mtb.png": "/portfolio/static/media/mtb.ad2add2cd684282b8f95.png",
     "static/media/FiraCode-Bold.ttf": "/portfolio/static/media/FiraCode-Bold.06506052e5335a624984.ttf",
@@ -8,6 +8,8 @@
     "static/media/FiraCode-Regular.ttf": "/portfolio/static/media/FiraCode-Regular.ea32261131becc79ea84.ttf",
     "static/media/FiraCode-Medium.ttf": "/portfolio/static/media/FiraCode-Medium.1c8a3e40256226ddb520.ttf",
     "static/media/futuraxtrabold.ttf": "/portfolio/static/media/futuraxtrabold.fd37c14a9f5e9448418b.ttf",
+    "static/media/black_mountains.webp": "/portfolio/static/media/black_mountains.1ff4c2737afb9db04caf.webp",
+    "static/media/white_mountains.webp": "/portfolio/static/media/white_mountains.6c2980675eeed0147f55.webp",
     "static/media/contact.webp": "/portfolio/static/media/contact.5b30d5e7d170c5db58b8.webp",
     "static/media/futuraheavy.ttf": "/portfolio/static/media/futuraheavy.af72c25a6945b0f48abb.ttf",
     "static/media/futuramedium.ttf": "/portfolio/static/media/futuramedium.4e762c29ef7b44ca51cb.ttf",
@@ -17,11 +19,11 @@
     "static/media/instDark.webp": "/portfolio/static/media/instDark.28652c410ba35551f918.webp",
     "static/media/inst.webp": "/portfolio/static/media/inst.31974a087ac6ed5c4d38.webp",
     "index.html": "/portfolio/index.html",
-    "main.48936c16.css.map": "/portfolio/static/css/main.48936c16.css.map",
+    "main.56328000.css.map": "/portfolio/static/css/main.56328000.css.map",
     "main.ad0a5c1d.js.map": "/portfolio/static/js/main.ad0a5c1d.js.map"
   },
   "entrypoints": [
-    "static/css/main.48936c16.css",
+    "static/css/main.56328000.css",
     "static/js/main.ad0a5c1d.js"
   ]
 }
