@@ -1,0 +1,16 @@
+.contact {
+  &__socials {
+    display: flex;
+    align-items: center;
+    margin: 15px 0 0 0;
+    gap: 15px;
+    transform: translateX(-100%);
+    transition: var(--long-transition) var(--cubic-transition);
+    transition-delay: var(--basic-transition);
+    overflow: hidden;
+    &__link {
+      height: 50px;
+      width: 50px;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+.intro {
+  &__circle {
+    position: absolute;
+    right: -15vw;
+    bottom: 18vh;
+    width: 450px;
+    height: 450px;
+    opacity: 0;
+    z-index: 1;
+    border-radius: 50%;
+    background: var(--secondary);
+    box-shadow: var(--box-shadow);
+    animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
+      glow 2s 3.5s ease-in-out infinite alternate;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      opacity: 0.75;
+      border-bottom: 20px solid var(--primary);
+      border-left: 20px solid var(--primary);
+      border-radius: 50%;
+      transform: rotate3d(4, 3, 2, -90deg);
+      animation: orbit 5s infinite;
+    }
+    &::before {
+      top: -70px;
+      left: -80px;
+      width: 600px;
+      height: 600px;
+    }
+    &::after {
+      top: -100px;
+      left: -140px;
+      width: 700px;
+      height: 700px;
+    }
+  }
+  &__text {
+    position: absolute;
+    right: 0;
+    bottom: 45%;
+    font-size: 60px;
+    opacity: 0;
+    z-index: 2;
+    color: var(--primary);
+    letter-spacing: 10px;
+    font-family: var(--xtrabold-ff);
+    animation: textAnim 1.2s ease forwards;
+  }
+}
+
+@keyframes circleAnim {
+  to {
+    right: 10vw;
+    opacity: 1;
+  }
+}
+
+@keyframes textAnim {
+  to {
+    right: 15vw;
+    opacity: 1;
+  }
+}
+
+@keyframes start {
+  from {
+    box-shadow: var(--box-shadow);
+  }
+  to {
+    box-shadow: var(--circle-shadow);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: var(--circle-shadow);
+  }
+  to {
+    box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50), 0 0 40px var(--white-opacity-50),
+      0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    opacity: 0.75;
+  }
+  25% {
+    opacity: 1;
+    box-shadow: 25px solid white;
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 25px solid white;
+  }
+  75% {
+    opacity: 1;
+    box-shadow: 25px solid white;
+  }
+  25% {
+    opacity: 0.75;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .intro {
+    &__circle {
+      right: 0;
+      top: 30vh;
+      width: 320px;
+      height: 320px;
+      &::before {
+        width: 500px;
+        height: 500px;
+        left: -95px;
+      }
+      &::after {
+        width: 420px;
+        height: 420px;
+        left: -50px;
+        top: -50px;
+      }
+    }
+    &__text {
+      font-size: 40px;
+      top: 47vh;
+      right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .intro {
+    &__text {
+      display: none;
+    }
+  }
+}
