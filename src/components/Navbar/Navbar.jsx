@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import "./Navbar.scss";
 
 export const Navbar = (props) => {
-  // { intro, projects, about, contact, options }
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

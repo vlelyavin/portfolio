@@ -1,7 +1,6 @@
 import "./Menu.scss";
 
 export const Menu = (props) => {
-  // { intro, projects, about, contact, options, active, setActive }
   const handleClick = (e) => {
     props.setActive(!props.active);
     const menu = document.querySelector(".menu");
