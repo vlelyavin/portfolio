@@ -1,16 +1,13 @@
-import { Menu } from "../Menu/Menu.jsx";
-import { useState } from "react";
 import moon from "../../images/moon.png";
 import sun from "../../images/sun.png";
 import "./Header.scss";
+import { useReducer } from "react";
+import { INITIAL_STATE, mainReducer } from "../../reducers/mainReducer.js";
+import { CHANGE_ACTIVE_STATUS, CHANGE_THEME } from "../../actions/mainActions";
 
 export const Header = (props) => {
-  // {
-  //   theme, setTheme, intro, projects, about, contact, options, git, gitDark, inst, instDark;
-  // }
-
   const body = document.body;
-
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
   if (localStorage.getItem("theme")) {
     body.classList.add(localStorage.getItem("theme"));
   } else {
@@ -22,19 +19,14 @@ export const Header = (props) => {
     body.classList.toggle("dark");
     body.classList.toggle("light");
     localStorage.setItem("theme", body.classList);
-    props.setTheme(localStorage.getItem("theme"));
+    dispatch({ type: CHANGE_THEME, payload: localStorage.getItem("theme") });
   };
 
   const handleAnim = () => {
-    const upper = document.querySelector(".header__menu__upper");
-    const lower = document.querySelector(".header__menu__lower");
-    const menu = document.querySelector(".menu");
-
-    upper.classList.toggle("rotateupper");
-    lower.classList.toggle("rotatelower");
-
-    menu.classList.toggle("menuAnim");
-    props.setActive(!props.active);
+    props.headerUpper.current.classList.toggle("rotateupper");
+    props.headerLower.current.classList.toggle("rotatelower");
+    props.menu.current.classList.toggle("menuAnim");
+    dispatch({ type: CHANGE_ACTIVE_STATUS, payload: true });
   };
 
   const handleClick = () => {
@@ -53,7 +45,7 @@ export const Header = (props) => {
         <div className="header__info">
           <img
             className="header__theme hovereffect"
-            src={props.theme === "dark" ? moon : sun}
+            src={state.theme === "dark" ? moon : sun}
             onClick={switchTheme}
             alt="theme"
           />
@@ -61,21 +53,21 @@ export const Header = (props) => {
             <a href="https://github.com/vlelyavin" className="header__socials__link hovereffect">
               <img
                 className="header__socials__icon"
-                src={props.theme === "dark" ? props.git : props.gitDark}
+                src={state.theme === "dark" ? props.git : props.gitDark}
                 alt="github"
               />
             </a>
             <a href="https://www.instagram.com/v._lelyavin/" className="header__socials__link hovereffect">
               <img
                 className="header__socials__icon"
-                src={props.theme === "dark" ? props.inst : props.instDark}
+                src={state.theme === "dark" ? props.inst : props.instDark}
                 alt="inst"
               />
             </a>
           </div>
           <div className="header__menu hovereffect" onClick={handleAnim}>
-            <div className="header__menu__upper"></div>
-            <div className="header__menu__lower"></div>
+            <div className="header__menu__upper" ref={props.headerUpper}></div>
+            <div className="header__menu__lower" ref={props.headerLower}></div>
           </div>
         </div>
       </header>

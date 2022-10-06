@@ -1,13 +1,8 @@
 import "./Projects.scss";
 
 export const Projects = ({ projects }) => {
-  const close = () => {
-    const app = document.querySelector(".projects__app");
-    app.classList.add("closed");
-  };
-
   return (
-    <section className="projects section" ref={projects}>
+    <section id="projects" className="projects section" ref={projects}>
       <div className="container">
         <div className="section__inner">
           <div className="section__info">
@@ -25,7 +20,7 @@ export const Projects = ({ projects }) => {
               <div className="projects__app__header__buttons">
                 <div className="projects__app__header__button minimize"></div>
                 <div className="projects__app__header__button expand"></div>
-                <div className="projects__app__header__button close" onClick={close}></div>
+                <div className="projects__app__header__button close"></div>
               </div>
             </div>
             <textarea className="projects__app__textarea" defaultValue="console.log(`Hello mom`);" />

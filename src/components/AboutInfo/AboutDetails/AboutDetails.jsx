@@ -4,8 +4,12 @@ import { Passion } from "../Passion/Passion";
 import { Skills } from "../Skills/Skills";
 import { VscClose } from "react-icons/vsc";
 import "./AboutDetails.scss";
+import { useReducer } from "react";
+import { INITIAL_STATE, mainReducer } from "../../../reducers/mainReducer";
+import { CHANGE_VISIBLE_STATUS } from "../../../actions/mainActions";
 
-export const AboutDetails = ({ theme, visible, setVisible }) => {
+export const AboutDetails = ({ theme }) => {
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
   return (
     <div id="details" className="container">
       <div className="details__inner">
@@ -26,7 +30,11 @@ export const AboutDetails = ({ theme, visible, setVisible }) => {
             <Route path="/portfolio/passion" element={<Passion theme={theme} />} />
             <Route path="/portfolio/skills" element={<Skills />} />
           </Routes>
-          <Link to="/portfolio" className="details__button__container" onClick={() => setVisible(!visible)}>
+          <Link
+            to="/portfolio"
+            className="details__button__container"
+            onClick={() => dispatch({ type: CHANGE_VISIBLE_STATUS, payload: !state.visible })}
+          >
             <VscClose className="details__button" />
           </Link>
         </div>

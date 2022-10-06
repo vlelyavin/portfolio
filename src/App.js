@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import { Loader } from "./components/Loader";
 import { Cursor } from "./components/Cursor";
 import { Menu } from "./components/Menu";
@@ -14,44 +14,43 @@ import instDark from "./images/instDark.webp";
 import inst from "./images/inst.webp";
 import "./main.scss";
 import "./fonts/fonts.scss";
+import { INITIAL_STATE, mainReducer } from "./reducers/mainReducer";
+import { CHANGE_LOADING_STATUS, CHANGE_THEME } from "./actions/mainActions";
 
 export const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [active, setActive] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [active, setActive] = useState(false);
+  // const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  // const [visible, setVisible] = useState(false);
+
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
 
   useEffect(() => {
-    const loader = document.querySelector(".loader");
-    setIsLoading(!isLoading);
-    loader.classList.add("hidden");
+    dispatch({ type: CHANGE_LOADING_STATUS, payload: false });
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: CHANGE_THEME, payload: localStorage.getItem("theme") });
+  }, [state.theme]);
 
   const intro = useRef();
   const projects = useRef();
   const about = useRef();
   const contact = useRef();
+  const cursor = useRef();
+  const bicycle = useRef();
+  const spaceman = useRef();
+  const menu = useRef();
+  const headerLower = useRef();
+  const headerUpper = useRef();
   const options = { block: "center", behavior: "smooth" };
-  const [theme, setTheme] = useState(localStorage.getItem("theme"));
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    setTheme(localStorage.getItem("theme"));
-  }, [theme]);
 
   window.onmousemove = (e) => {
-    const aboutContainer = document.querySelector(".bicycle");
-    const contactContainer = document.querySelector(".spaceman");
-    const cursor = document.querySelector(".cursor");
-
-    if (aboutContainer) {
-      aboutContainer.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-    }
-    if (contactContainer) {
-      contactContainer.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-    }
-
-    cursor.style.opacity = 1;
-    cursor.style.left = `${e.x - 10}px`;
-    cursor.style.top = `${e.y - 10}px`;
+    bicycle.current.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    spaceman.current.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    cursor.current.style.opacity = 1;
+    cursor.current.style.left = `${e.x - 10}px`;
+    cursor.current.style.top = `${e.y - 10}px`;
   };
 
   document.addEventListener(
@@ -61,6 +60,8 @@ export const App = () => {
     },
     { passive: false }
   );
+
+  const sections = { intro, about, projects, contact };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -109,10 +110,10 @@ export const App = () => {
     const descriptions = document.querySelectorAll(".descr");
     const socials = document.querySelector(".contact__socials");
     const buttons = document.querySelectorAll(".section__button");
-    const console = document.querySelector(".projects__app");
+    const appConsole = document.querySelector(".projects__app");
     const ImgContainers = document.querySelectorAll(".section__image__container");
 
-    observer.observe(console);
+    observer.observe(appConsole);
     ImgContainers.forEach((container) => {
       observer.observe(container);
     });
@@ -129,34 +130,21 @@ export const App = () => {
       observer.observe(button);
     });
 
-    const introEl = document.querySelector(".intro");
-    const projectsEl = document.querySelector(".projects");
-    const aboutEl = document.querySelector(".about");
-    const contactEl = document.querySelector(".contact");
-
-    mainObserver.observe(introEl);
-    mainObserver.observe(projectsEl);
-    mainObserver.observe(aboutEl);
-    mainObserver.observe(contactEl);
-  }, [visible]);
-
-  const sections = {
-    intro,
-    about,
-    projects,
-    contact,
-  };
+    mainObserver.observe(intro.current);
+    mainObserver.observe(projects.current);
+    mainObserver.observe(about.current);
+    mainObserver.observe(contact.current);
+  }, [state.visible]);
 
   return (
     <>
-      <Loader />
-      <Cursor visible={visible} />
-      <Menu active={active} setActive={setActive} options={options} {...sections} />
+      {state.isLoading ? <Loader /> : null}
+      <Cursor visible={state.visible} cursor={cursor} />
+      <Menu menu={menu} headerLower={headerLower} headerUpper={headerUpper} options={options} sections={sections} />
       <Header
-        active={active}
-        setActive={setActive}
-        theme={theme}
-        setTheme={setTheme}
+        menu={menu}
+        headerLower={headerLower}
+        headerUpper={headerUpper}
         options={options}
         inst={inst}
         git={git}
@@ -164,11 +152,12 @@ export const App = () => {
         gitDark={gitDark}
         {...sections}
       />
-      <Navbar options={options} {...sections} />
+      <Navbar options={options} sections={sections} />
+
       <Intro intro={intro} />
       <Projects projects={projects} />
-      <About about={about} visible={visible} setVisible={setVisible} theme={theme} />
-      <Contact theme={theme} contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} />
+      <About about={about} bicycle={bicycle} />
+      <Contact contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} spaceman={spaceman} />
     </>
   );
 };

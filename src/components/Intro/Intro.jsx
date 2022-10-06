@@ -1,30 +1,31 @@
+import { useEffect } from "react";
+import { useRef } from "react";
 import Typewriter from "typewriter-effect";
 import "./Intro.scss";
 
 export const Intro = ({ intro }) => {
-  window.addEventListener("load", () => {
-    const introText = document.querySelector(".intro__text");
-    const introCircle = document.querySelector(".intro__circle");
+  const text = useRef();
+  const circle = useRef();
 
+  useEffect(() => {
     setTimeout(() => {
-      introCircle.style.transition = "0.05s";
-      introText.style.transition = "0.05s";
+      text.current.style.transition = "0.05s";
+      circle.current.style.transition = "0.05s";
     }, 1500);
-  });
+  }, []);
 
   document.onmousemove = (e) => {
-    const introText = document.querySelector(".intro__text");
-    const introCircle = document.querySelector(".intro__circle");
-
-    introCircle.style.transform = `translate(-${e.x / 40}px, -${e.y / 40}px)`;
-    introText.style.transform = `translate(-${e.x / 100}px, -${e.y / 100}px)`;
+    text.current.style.transform = `translate(-${e.x / 100}px, -${e.y / 100}px)`;
+    circle.current.style.transform = `translate(-${e.x / 40}px, -${e.y / 40}px)`;
   };
 
   return (
-    <section className="intro section" ref={intro}>
+    <section id="intro" className="intro section" ref={intro}>
       <div className="container">
-        <div className="intro__text">PORTFOLIO</div>
-        <div className="intro__circle"></div>
+        <div className="intro__text" ref={text}>
+          PORTFOLIO
+        </div>
+        <div className="intro__circle" ref={circle}></div>
         <div className="section__inner">
           <div className="section__info">
             <div className="title">Vladimir Lelyavin</div>

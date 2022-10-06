@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./Cursor.scss";
 
-export const Cursor = ({ visible }) => {
+export const Cursor = ({ visible, cursor }) => {
   useEffect(() => {
     const navButtons = document.querySelectorAll(".details__nav__button");
     const hovers = document.querySelectorAll(".hovereffect");
@@ -65,7 +65,7 @@ export const Cursor = ({ visible }) => {
     });
   }, [visible]);
   return (
-    <div className="cursor">
+    <div className="cursor" ref={cursor}>
       <div className="cursor__left"></div>
       <div className="cursor__right"></div>
     </div>

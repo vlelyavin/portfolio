@@ -1,39 +1,39 @@
+import { useReducer } from "react";
+import { CHANGE_ACTIVE_STATUS } from "../../actions/mainActions";
+import { INITIAL_STATE, mainReducer } from "../../reducers/mainReducer";
 import "./Menu.scss";
 
 export const Menu = (props) => {
+  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
   const handleClick = (e) => {
-    props.setActive(!props.active);
-    const menu = document.querySelector(".menu");
-    const upper = document.querySelector(".header__menu__upper");
-    const lower = document.querySelector(".header__menu__lower");
     const current = document.querySelector(".current");
-    menu.classList.remove("menuAnim");
-    upper.classList.remove("rotateupper");
-    lower.classList.remove("rotatelower");
-    const propsSections = Object.values(props).slice(3);
-    const requestedSection = propsSections.find(
-      (item) => item.current.classList[0] === e.target.classList[1].slice(0, -4)
-    );
+    dispatch({ type: CHANGE_ACTIVE_STATUS, payload: !state.active });
+    setTimeout(() => {
+      current.classList.remove("current");
+    }, 300);
+    props.menu.current.classList.remove("menuAnim");
+    props.headerUpper.current.classList.remove("rotateupper");
+    props.headerLower.current.classList.remove("rotatelower");
+    const propsSections = Object.values(props.sections);
+    const requestedSection = propsSections.find((item) => item.current.id === e.target.getAttribute("name"));
     setTimeout(() => {
       requestedSection.current.scrollIntoView(props.options);
-      current.classList.remove("current");
-      requestedSection.classList.add("current");
     }, 600);
   };
 
   return (
-    <div className="menu">
+    <div className="menu" ref={props.menu}>
       <div className="menu__nav">
-        <div className="menu__nav__button introlink" onClick={handleClick}>
+        <div className="menu__nav__button" name="intro" onClick={handleClick}>
           Intro
         </div>
-        <div className="menu__nav__button projectslink" onClick={handleClick}>
+        <div className="menu__nav__button" name="projects" onClick={handleClick}>
           Projects
         </div>
-        <div className="menu__nav__button aboutlink" onClick={handleClick}>
+        <div className="menu__nav__button" name="about" onClick={handleClick}>
           About
         </div>
-        <div className="menu__nav__button contactlink" onClick={handleClick}>
+        <div className="menu__nav__button" name="contact" onClick={handleClick}>
           Contact
         </div>
       </div>
