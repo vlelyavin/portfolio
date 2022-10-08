@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
 import { Loader } from "./components/Loader";
 import { Cursor } from "./components/Cursor";
 import { Menu } from "./components/Menu";
@@ -18,11 +18,6 @@ import { INITIAL_STATE, mainReducer } from "./reducers/mainReducer";
 import { CHANGE_LOADING_STATUS, CHANGE_THEME } from "./actions/mainActions";
 
 export const App = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [active, setActive] = useState(false);
-  // const [theme, setTheme] = useState(localStorage.getItem("theme"));
-  // const [visible, setVisible] = useState(false);
-
   const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
 
   useEffect(() => {
@@ -46,13 +41,16 @@ export const App = () => {
   const options = { block: "center", behavior: "smooth" };
 
   window.onmousemove = (e) => {
-    bicycle.current.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
-    spaceman.current.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
     cursor.current.style.opacity = 1;
     cursor.current.style.left = `${e.x - 10}px`;
     cursor.current.style.top = `${e.y - 10}px`;
+    if (bicycle && !state.visible) {
+      bicycle.current.style.transform = `scale(2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
+    if (spaceman && !state.visible) {
+      spaceman.current.style.transform = `scale(1.2) translate(${e.clientX / 900}%, ${e.clientY / 900}%)`;
+    }
   };
-
   document.addEventListener(
     "wheel",
     (e) => {
@@ -140,8 +138,18 @@ export const App = () => {
     <>
       {state.isLoading ? <Loader /> : null}
       <Cursor visible={state.visible} cursor={cursor} />
-      <Menu menu={menu} headerLower={headerLower} headerUpper={headerUpper} options={options} sections={sections} />
+      <Menu
+        state={state}
+        dispatch={dispatch}
+        menu={menu}
+        headerLower={headerLower}
+        headerUpper={headerUpper}
+        options={options}
+        sections={sections}
+      />
       <Header
+        state={state}
+        dispatch={dispatch}
         menu={menu}
         headerLower={headerLower}
         headerUpper={headerUpper}
@@ -153,11 +161,18 @@ export const App = () => {
         {...sections}
       />
       <Navbar options={options} sections={sections} />
-
       <Intro intro={intro} />
       <Projects projects={projects} />
-      <About about={about} bicycle={bicycle} />
-      <Contact contact={contact} inst={inst} git={git} instDark={instDark} gitDark={gitDark} spaceman={spaceman} />
+      <About about={about} bicycle={bicycle} state={state} dispatch={dispatch} />
+      <Contact
+        theme={state.theme}
+        contact={contact}
+        inst={inst}
+        git={git}
+        instDark={instDark}
+        gitDark={gitDark}
+        spaceman={spaceman}
+      />
     </>
   );
 };

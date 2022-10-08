@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./Cursor.scss";
 
-export const Cursor = ({ visible, cursor }) => {
+export const Cursor = (props) => {
   useEffect(() => {
     const navButtons = document.querySelectorAll(".details__nav__button");
     const hovers = document.querySelectorAll(".hovereffect");
@@ -63,9 +63,9 @@ export const Cursor = ({ visible, cursor }) => {
     projectsAppHeader.addEventListener("mouseout", () => {
       cursor.style.filter = ``;
     });
-  }, [visible]);
+  }, [props.visible]);
   return (
-    <div className="cursor" ref={cursor}>
+    <div className="cursor" ref={props.cursor}>
       <div className="cursor__left"></div>
       <div className="cursor__right"></div>
     </div>

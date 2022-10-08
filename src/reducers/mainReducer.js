@@ -10,11 +10,11 @@ export const mainReducer = (state, action) => {
     case "CHANGE_LOADING_STATUS":
       return { ...state, isLoading: action.payload };
     case "CHANGE_ACTIVE_STATUS":
-      return { ...state, active: true };
+      return { ...state, active: action.payload };
     case "CHANGE_THEME":
       return { ...state, theme: action.payload };
     case "CHANGE_VISIBLE_STATUS":
-      return { ...state, visible: true };
+      return { ...state, visible: action.payload };
     default:
       return state;
   }

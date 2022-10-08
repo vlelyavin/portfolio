@@ -1,8 +1,8 @@
 import "./Projects.scss";
 
-export const Projects = ({ projects }) => {
+export const Projects = (props) => {
   return (
-    <section id="projects" className="projects section" ref={projects}>
+    <section id="projects" className="projects section" ref={props.projects}>
       <div className="container">
         <div className="section__inner">
           <div className="section__info">

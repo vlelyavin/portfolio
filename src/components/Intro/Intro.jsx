@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Typewriter from "typewriter-effect";
 import "./Intro.scss";
 
-export const Intro = ({ intro }) => {
+export const Intro = (props) => {
   const text = useRef();
   const circle = useRef();
 
@@ -20,7 +20,7 @@ export const Intro = ({ intro }) => {
   };
 
   return (
-    <section id="intro" className="intro section" ref={intro}>
+    <section id="intro" className="intro section" ref={props.intro}>
       <div className="container">
         <div className="intro__text" ref={text}>
           PORTFOLIO

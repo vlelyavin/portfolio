@@ -1,13 +1,10 @@
-import { useReducer } from "react";
 import { CHANGE_ACTIVE_STATUS } from "../../actions/mainActions";
-import { INITIAL_STATE, mainReducer } from "../../reducers/mainReducer";
 import "./Menu.scss";
 
 export const Menu = (props) => {
-  const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);
   const handleClick = (e) => {
     const current = document.querySelector(".current");
-    dispatch({ type: CHANGE_ACTIVE_STATUS, payload: !state.active });
+    props.dispatch({ type: CHANGE_ACTIVE_STATUS, payload: !props.state.active });
     setTimeout(() => {
       current.classList.remove("current");
     }, 300);

@@ -6,20 +6,20 @@ import technology from "../../../images/technology.png";
 import technologyDark from "../../../images/technologyDark.png";
 import "./Passion.scss";
 
-export const Passion = ({ theme }) => {
+export const Passion = (props) => {
   return (
     <section className="passion">
       <div className="passion__row">
         <div className="passion__column">
-          <img className="passion__icon" src={theme === "dark" ? mtb : mtbDark} alt="mtb" />
+          <img className="passion__icon" src={props.theme === "dark" ? mtb : mtbDark} alt="mtb" />
           <div className="passion__name">Biking</div>
         </div>
         <div className="passion__column">
-          <img className="passion__icon" src={theme === "dark" ? travelling : travellingDark} alt="travelling" />
+          <img className="passion__icon" src={props.theme === "dark" ? travelling : travellingDark} alt="travelling" />
           <div className="passion__name">Travelling</div>
         </div>
         <div className="passion__column">
-          <img className="passion__icon" src={theme === "dark" ? technology : technologyDark} alt="technology" />
+          <img className="passion__icon" src={props.theme === "dark" ? technology : technologyDark} alt="technology" />
           <div className="passion__name">Techology</div>
         </div>
       </div>
