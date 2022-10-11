@@ -8,14 +8,14 @@ import { Intro } from "./components/Intro";
 import { Projects } from "./components/Projects";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
+import { INITIAL_STATE, mainReducer } from "./reducers/mainReducer";
+import { CHANGE_LOADING_STATUS, CHANGE_THEME } from "./actions/mainActions";
 import git from "./images/git.webp";
 import gitDark from "./images/gitDark.webp";
 import instDark from "./images/instDark.webp";
 import inst from "./images/inst.webp";
 import "./main.scss";
 import "./fonts/fonts.scss";
-import { INITIAL_STATE, mainReducer } from "./reducers/mainReducer";
-import { CHANGE_LOADING_STATUS, CHANGE_THEME } from "./actions/mainActions";
 
 export const App = () => {
   const [state, dispatch] = useReducer(mainReducer, INITIAL_STATE);

@@ -5,9 +5,11 @@ export const Menu = (props) => {
   const handleClick = (e) => {
     const current = document.querySelector(".current");
     props.dispatch({ type: CHANGE_ACTIVE_STATUS, payload: !props.state.active });
-    setTimeout(() => {
-      current.classList.remove("current");
-    }, 300);
+    if (!e.target.getAttribute("name") === current.getAttribute("name")) {
+      setTimeout(() => {
+        current.classList.remove("current");
+      }, 300);
+    }
     props.menu.current.classList.remove("menuAnim");
     props.headerUpper.current.classList.remove("rotateupper");
     props.headerLower.current.classList.remove("rotatelower");
