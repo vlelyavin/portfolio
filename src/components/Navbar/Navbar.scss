@@ -1,24 +1,42 @@
 .nav {
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   left: 30px;
   top: 50%;
   gap: 25px;
   z-index: 4;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   overflow: hidden;
   &__button {
     width: 30px;
     height: 3px;
     background: var(--primary);
+    -webkit-transform: translateX(-150%);
+    -ms-transform: translateX(-150%);
     transform: translateX(-150%);
+    -webkit-animation: navButton 1s var(--medium-transition) cubic-bezier(0, 0.45, 0.09, 0.99) forwards;
     animation: navButton 1s var(--medium-transition) cubic-bezier(0, 0.45, 0.09, 0.99) forwards;
+  }
+}
+
+@-webkit-keyframes navButton {
+  to {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
   }
 }
 
 @keyframes navButton {
   to {
+    -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
 }
@@ -29,8 +47,14 @@
 
 @media screen and (max-width: 1000px) {
   .nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 60px;
     left: 50%;
@@ -38,6 +62,8 @@
     margin: 80px 0;
     border-radius: 10px;
     background: var(--section-info-bg);
+    -webkit-transform: translateX(-50%) translateY(100px) rotate(-90deg);
+    -ms-transform: translateX(-50%) translateY(100px) rotate(-90deg);
     transform: translateX(-50%) translateY(100px) rotate(-90deg);
   }
 }

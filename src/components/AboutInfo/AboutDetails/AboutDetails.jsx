@@ -4,7 +4,6 @@ import { Passion } from "../Passion/Passion";
 import { Skills } from "../Skills/Skills";
 import { VscClose } from "react-icons/vsc";
 import { CHANGE_VISIBLE_STATUS } from "../../../actions/mainActions";
-import "./AboutDetails.scss";
 
 export const AboutDetails = (props) => {
   return (

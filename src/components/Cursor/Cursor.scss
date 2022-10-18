@@ -7,7 +7,13 @@
   height: 20px;
   opacity: 0;
   pointer-events: none;
+  -webkit-transition: opacity var(--medium-transition), -webkit-transform 0.3s;
+  transition: opacity var(--medium-transition), -webkit-transform 0.3s;
+  -o-transition: opacity var(--medium-transition), transform 0.3s;
   transition: opacity var(--medium-transition), transform 0.3s;
+  transition: opacity var(--medium-transition), transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   &__left {
     position: relative;
@@ -35,6 +41,8 @@
       left: 0;
       height: 2px;
       width: 100%;
+      -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
       transform: rotate(90deg);
     }
   }

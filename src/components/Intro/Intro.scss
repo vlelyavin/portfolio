@@ -1,15 +1,18 @@
 .intro {
   &__circle {
     position: absolute;
-    right: -15vw;
-    bottom: 18vh;
-    width: 450px;
-    height: 450px;
+    right: -50%;
+    top: 25%;
+    width: 30vw;
+    height: 30vw;
     opacity: 0;
     z-index: 1;
     border-radius: 50%;
     background: var(--secondary);
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
+    -webkit-animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
+      glow 2s 3.5s ease-in-out infinite alternate;
     animation: circleAnim 1.2s ease forwards, start 2.5s 1s ease-in-out forwards,
       glow 2s 3.5s ease-in-out infinite alternate;
     &::before,
@@ -20,7 +23,9 @@
       border-bottom: 20px solid var(--primary);
       border-left: 20px solid var(--primary);
       border-radius: 50%;
+      -webkit-transform: rotate3d(4, 3, 2, -90deg);
       transform: rotate3d(4, 3, 2, -90deg);
+      -webkit-animation: orbit 5s infinite;
       animation: orbit 5s infinite;
     }
     &::before {
@@ -46,40 +51,108 @@
     color: var(--primary);
     letter-spacing: 10px;
     font-family: var(--xtrabold-ff);
+    -webkit-animation: textAnim 1.2s ease forwards;
     animation: textAnim 1.2s ease forwards;
+  }
+}
+
+@-webkit-keyframes circleAnim {
+  to {
+    right: 10%;
+    opacity: 1;
   }
 }
 
 @keyframes circleAnim {
   to {
-    right: 10vw;
+    right: 10%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes textAnim {
+  to {
+    right: 15%;
     opacity: 1;
   }
 }
 
 @keyframes textAnim {
   to {
-    right: 15vw;
+    right: 15%;
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes start {
+  from {
+    -webkit-box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow);
+  }
+  to {
+    -webkit-box-shadow: var(--circle-shadow);
+    box-shadow: var(--circle-shadow);
   }
 }
 
 @keyframes start {
   from {
+    -webkit-box-shadow: var(--box-shadow);
     box-shadow: var(--box-shadow);
   }
   to {
+    -webkit-box-shadow: var(--circle-shadow);
     box-shadow: var(--circle-shadow);
+  }
+}
+
+@-webkit-keyframes glow {
+  from {
+    -webkit-box-shadow: var(--circle-shadow);
+    box-shadow: var(--circle-shadow);
+  }
+  to {
+    -webkit-box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50),
+      0 0 40px var(--white-opacity-50), 0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
+    box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50), 0 0 40px var(--white-opacity-50),
+      0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
   }
 }
 
 @keyframes glow {
   from {
+    -webkit-box-shadow: var(--circle-shadow);
     box-shadow: var(--circle-shadow);
   }
   to {
+    -webkit-box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50),
+      0 0 40px var(--white-opacity-50), 0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
     box-shadow: 0 0 20px var(--white-opacity-50), 0 0 30px var(--white-opacity-50), 0 0 40px var(--white-opacity-50),
       0 0 60px var(--white-opacity-50), 0 0 70px var(--white-opacity-50);
+  }
+}
+
+@-webkit-keyframes orbit {
+  0% {
+    opacity: 0.75;
+  }
+  25% {
+    opacity: 1;
+    -webkit-box-shadow: 25px solid white;
+    box-shadow: 25px solid white;
+  }
+  50% {
+    opacity: 1;
+    -webkit-box-shadow: 25px solid white;
+    box-shadow: 25px solid white;
+  }
+  75% {
+    opacity: 1;
+    -webkit-box-shadow: 25px solid white;
+    box-shadow: 25px solid white;
+  }
+  25% {
+    opacity: 0.75;
   }
 }
 
@@ -89,14 +162,17 @@
   }
   25% {
     opacity: 1;
+    -webkit-box-shadow: 25px solid white;
     box-shadow: 25px solid white;
   }
   50% {
     opacity: 1;
+    -webkit-box-shadow: 25px solid white;
     box-shadow: 25px solid white;
   }
   75% {
     opacity: 1;
+    -webkit-box-shadow: 25px solid white;
     box-shadow: 25px solid white;
   }
   25% {
@@ -108,7 +184,7 @@
   .intro {
     &__circle {
       right: 0;
-      top: 30vh;
+      top: 30%;
       width: 320px;
       height: 320px;
       &::before {
@@ -125,7 +201,7 @@
     }
     &__text {
       font-size: 40px;
-      top: 47vh;
+      top: 47%;
       right: 0;
     }
   }

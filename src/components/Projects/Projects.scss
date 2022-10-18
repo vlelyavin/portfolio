@@ -1,17 +1,39 @@
 .projects {
   &__app {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     max-width: 700px;
     width: 100%;
     height: 400px;
     margin: 0 5px 0 0;
+    -webkit-transition: width var(--medium-transition), height var(--medium-transition),
+      -webkit-transform var(--long-transition);
+    transition: width var(--medium-transition), height var(--medium-transition),
+      -webkit-transform var(--long-transition);
+    -o-transition: transform var(--long-transition), width var(--medium-transition), height var(--medium-transition);
     transition: transform var(--long-transition), width var(--medium-transition), height var(--medium-transition);
+    transition: transform var(--long-transition), width var(--medium-transition), height var(--medium-transition),
+      -webkit-transform var(--long-transition);
+    -webkit-transform: translatex(15%) scale(90%);
+    -ms-transform: translatex(15%) scale(90%);
     transform: translatex(15%) scale(90%);
     &__header {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       width: 100%;
       height: 40px;
@@ -25,8 +47,14 @@
         font-family: var(--semibold-secondary-ff);
       }
       &__buttons {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-pack: left;
+        -ms-flex-pack: left;
         justify-content: left;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
         width: 90px;
         height: 100%;
@@ -52,6 +80,7 @@
       resize: none;
       white-space: normal;
       overflow: hidden;
+      -webkit-box-shadow: inset var(--box-shadow);
       box-shadow: inset var(--box-shadow);
     }
   }
@@ -66,6 +95,8 @@
     width: 15px;
     height: 2px;
     background: var(--secondary);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
 }
@@ -80,6 +111,8 @@
     height: 12px;
     border-radius: 50%;
     border: 2px inset var(--secondary);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
 }
@@ -96,16 +129,21 @@
   &::before {
     top: 20px;
     left: 13px;
+    -webkit-transform: rotate(45deg) translate(-50%, -50%);
+    -ms-transform: rotate(45deg) translate(-50%, -50%);
     transform: rotate(45deg) translate(-50%, -50%);
   }
   &::after {
     bottom: 18px;
     left: 14px;
+    -webkit-transform: rotate(-45deg) translate(-50%, -50%);
+    -ms-transform: rotate(-45deg) translate(-50%, -50%);
     transform: rotate(-45deg) translate(-50%, -50%);
   }
 }
 
 .closed {
+  -webkit-animation: close var(--long-transition) forwards;
   animation: close var(--long-transition) forwards;
 }
 
@@ -118,11 +156,24 @@
   z-index: 2;
 }
 
-@keyframes close {
+@-webkit-keyframes close {
   0% {
+    -webkit-transform: translatex(0);
     transform: translatex(0);
   }
   100% {
+    -webkit-transform: translatex(120%);
+    transform: translatex(120%);
+  }
+}
+
+@keyframes close {
+  0% {
+    -webkit-transform: translatex(0);
+    transform: translatex(0);
+  }
+  100% {
+    -webkit-transform: translatex(120%);
     transform: translatex(120%);
   }
 }

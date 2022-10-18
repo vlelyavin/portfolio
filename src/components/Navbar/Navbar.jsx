@@ -38,9 +38,7 @@ export const Navbar = (props) => {
     const propsSections = Object.values(props.sections);
     const requestedSection = propsSections.find((item) => item.current.classList[0] === e.target.getAttribute("name"));
     requestedSection.current.scrollIntoView(props.options);
-    if (e.target.classList.contains("current")) {
-      return;
-    }
+    if (e.target.classList.contains("current")) return;
     current.classList.remove("current");
     e.target.classList.add("current");
   };

@@ -1,6 +1,11 @@
 .details {
   &__inner {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -16,28 +21,43 @@
       width: 50px;
       height: 50px;
       z-index: 2;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
       transform: translateX(-50%);
       text-decoration: none;
       color: var(--primary);
     }
   }
   &__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     font-size: 35px;
     gap: 30px;
+    -webkit-transition: padding var(--long-transition);
+    -o-transition: padding var(--long-transition);
     transition: padding var(--long-transition);
     padding: 0 100px;
+    -webkit-animation: var(--long-transition) drop forwards;
     animation: var(--long-transition) drop forwards;
     &__button {
       position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
       text-decoration: none;
       width: 30%;
       font-size: 45px;
       color: var(--primary);
+      -webkit-transition: var(--medium-transition);
+      -o-transition: var(--medium-transition);
       transition: var(--medium-transition);
       &:hover {
         opacity: 0.7;
@@ -46,8 +66,14 @@
   }
   &__info {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     text-align: center;
     width: 100%;
@@ -58,11 +84,25 @@
   }
 }
 
-@keyframes drop {
+@-webkit-keyframes drop {
   from {
+    -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
   to {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drop {
+  from {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
   }

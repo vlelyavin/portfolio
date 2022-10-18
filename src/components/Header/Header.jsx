@@ -29,8 +29,8 @@ export const Header = (props) => {
   const handleClick = () => {
     const current = document.querySelector(".current");
     props.intro.current.scrollIntoView(props.options);
+    if (current.getAttribute("name") === props.intro.current.id) return;
     current.classList.remove("current");
-    props.intro.classList.add("current");
   };
 
   return (

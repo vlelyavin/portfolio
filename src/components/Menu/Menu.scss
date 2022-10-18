@@ -1,7 +1,13 @@
 .menu {
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   top: 0;
   left: 0;
@@ -9,13 +15,27 @@
   height: 100%;
   z-index: 5;
   background: var(--secondary) no-repeat center center / cover;
+  -webkit-transform: translateY(-150vh);
+  -ms-transform: translateY(-150vh);
   transform: translateY(-150vh);
+  -webkit-transition: var(--long-transition);
+  -o-transition: var(--long-transition);
   transition: var(--long-transition);
+  -webkit-box-shadow: var(--box-shadow);
   box-shadow: var(--box-shadow);
   &__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     max-width: 500px;
     width: 100%;
@@ -34,6 +54,8 @@
         width: 0;
         height: 3px;
         background: var(--primary);
+        -webkit-transition: var(--long-transition) var(--cubic-transition);
+        -o-transition: var(--long-transition) var(--cubic-transition);
         transition: var(--long-transition) var(--cubic-transition);
       }
       &:hover::after {

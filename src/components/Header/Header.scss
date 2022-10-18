@@ -1,6 +1,10 @@
 .header {
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   top: 0;
   left: 0;
@@ -9,13 +13,23 @@
   padding: 30px 40px;
   z-index: 6;
   &__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     color: var(--primary);
   }
   &__socials {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
     margin: 4px 15px 0 0;
@@ -30,11 +44,17 @@
     }
   }
   &__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
   }
   &__menu {
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 55px;
     height: 30px;
@@ -48,6 +68,8 @@
       width: 30px;
       height: 2px;
       background: var(--primary);
+      -webkit-transition: var(--basic-transition);
+      -o-transition: var(--basic-transition);
       transition: var(--basic-transition);
     }
     &__upper {
@@ -66,9 +88,13 @@
 
 .rotate {
   &upper {
+    -webkit-transform: translate(0, 4px) rotate(45deg);
+    -ms-transform: translate(0, 4px) rotate(45deg);
     transform: translate(0, 4px) rotate(45deg);
   }
   &lower {
+    -webkit-transform: translate(0, -4px) rotate(-45deg);
+    -ms-transform: translate(0, -4px) rotate(-45deg);
     transform: translate(0, -4px) rotate(-45deg);
   }
 }
